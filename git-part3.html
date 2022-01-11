@@ -11,7 +11,7 @@
 
 
 
-<title>Week 2. More Git</title>
+<title>Git/GitHub Part 3</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -400,7 +400,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Week 2. More Git</h1>
+<h1 class="title toc-ignore">Git/GitHub Part 3</h1>
 
 </div>
 
@@ -426,70 +426,119 @@ Robust
 </tr>
 </tbody>
 </table>
-<div id="branches" class="section level1">
-<h1>Branches</h1>
-<p>A copy of your repository that you can work on without changing the main repository. Once you are done, you incorporate the changes into the main repository. <strong>Most of you should steer clear of branches</strong> because they are incompatible with our common workflows!! I maintain 40+ repositories and use branches on only 2 of them.</p>
-<p>When your switch to a branch, i.e. <code>checkout</code> a branch, it changes the files in that folder to the state of the branch. The info to restore the files to the main branch state is in the <code>.git</code> folder.</p>
-<p>Let’s say you have a repository (folder) for all your common functions, <code>common</code> and in that a folder called <code>R</code> with a function <code>basicplot.R</code>. You decide to create a branch to play around with some other options for <code>basicplot.R</code>. So you switch branches to branch <code>temp</code> and make some sandboxy changes to <code>basicplot.R</code>. Those changes are in your file system, not on some magic separate ‘branch’. Any call to like this in your other code is reading that sandboxy <code>basicplot.R</code>.</p>
-<ul>
-<li><code>source(</code>~/Documents/common/R/basicplot.R`)</li>
-</ul>
-<p>Let’s say you have you hard drive on an automatic backup system. It will backup the branch <code>temp</code>. The main branch info is in the <code>.git</code> folder but this will be pretty confusing if someone looks at the files.</p>
-<p>For this reason, switching branches will reset the time stamp of <code>basicplot.R</code> when you switch back to the main branch.</p>
-<div id="working-with-branches" class="section level2">
-<h2>Working with branches</h2>
-<p>Why use branches?</p>
-<ul>
-<li>Let’s say you have a function that works fine and you want to make a bunch of changes but don’t want to break the old version. Work on a branch to sandbox your changes and merge back into master when done.</li>
-<li>Let’s say you want to try out an idea or new feature. Develop on a branch and merge into master when done.</li>
-<li>Let’s say you want to do a major revamp of your code, but you are worried that you might want to abandon this. Work on a branch. If you decide against the change, you just delete the branch.</li>
-<li>Will your work break code? Make a branch.</li>
-</ul>
-<p>When you start, keep it simple. Use a branch for one file or two. Work on the file and then merge it back into master. Then get rid of the branch. It’s not necessary to use branches but if you do a lot of coding or work on packages, then getting comfortable with them will help you out.</p>
-<div id="make-a-new-branch-in-rstudio" class="section level3">
-<h3>Make a new branch in RStudio</h3>
-<p>Click the new branch icon and give your branch a name. Give it an INFORMATIVE name. <code>tmp</code>, <code>foo</code> are bad. <code>hello_branch</code> is good as it tells what this branch is for (working on the <code>hello.R</code> file). <img src="images/new-branch.png" alt="new branch" /></p>
-<p>Now that you have a branch, it is critical that you pay attention to the Git tab and know where you are working. RStudio will remember what branch you are on.</p>
-<p>Let’s make a change to <code>hello.R</code> on hello_branch, put to GitHub and see what the two branches look like.</p>
+<div id="more-git-skills" class="section level1">
+<h1>More Git skills</h1>
+<div id="the-.git-folder" class="section level2">
+<h2>The <code>.git</code> folder</h2>
+<p>The <code>.git</code> folder is what has the repository information and tells Git that this is a Git repository. If you want your folder to stop being a Git repository, delete this. Looking at the <code>config</code> file can often help you solve problems with connecting to a remote repository.</p>
 </div>
-<div id="pull-request-merge-our-branch-with-master" class="section level3">
-<h3>Pull request, merge our branch with master</h3>
-<p>There are a few ways to do a pull request.</p>
+<div id="the-.gitignore-file" class="section level2">
+<h2>The <code>.gitignore</code> file</h2>
+<p>Add files (or folders) here so that they are ignored.</p>
+</div>
+<div id="getting-rid-of-changes-you-have-made" class="section level2">
+<h2>Getting rid of changes you have made</h2>
+<p>Say you made a change and you need to get rid of that. The temptation (for me) is to jump onto the Git command line and clobber my repository with <code>reset</code> and <code>revert</code> commands. <strong>Don’t do this.</strong> Here are some strategies that will make this let prone to leaving your code a mess.</p>
+<div id="have-you-commited-the-changes-yet" class="section level3">
+<h3>Have you commited the changes yet?</h3>
+<p><strong>No?</strong> Easy click on the file in GitHub Desktop, right click and click ‘Discard Changes…’. Note this will take things all the way back to your last commit!! If you have been making a bunch of changes without committing those, then you are out of luck.</p>
+<p><strong>Yes?</strong> Go to History in the GitHub Desktop window, click on the commit and click ‘Revert’. This will get rid of all the changes that went with that commit. So if you changed multiple files, all those files will be reverted. If you have pushed the changes to GitHub, then you can push the revert and it’ll show up on GitHub too.</p>
+</div>
+</div>
+<div id="recovering-a-single-file" class="section level2">
+<h2>Recovering a single file</h2>
+<p>Let’s say you made a big multi-file commit and you want to revert one file.</p>
+<p>You can do this at the Git command line, but I find that to be a huge time suck and in my early Git days, I sometimes left my repository with a horrible problem that I could not fix and had to completely rebuild my repo. Since I don’t need to be a Git wizard, this is what I do when I want to go ‘back in time’ for a single file.</p>
+<p>Assuming you have already pushed the changes up to GitHub</p>
 <ul>
-<li><p>You can do it from GitHub Desktop. It’ll just redirect you to GitHub however.</p></li>
-<li><p>You can do it from GitHub.</p></li>
+<li>Go to the repo on GitHub</li>
+<li>Click ‘commits’ It’s a little icon above your code with a clock with a counter-clockwise arrow.</li>
+<li>Scroll to the commit where the file was in the state you want (one before the last bad commit).</li>
+<li>On the right click the <code>&lt; &gt;</code> to browse your repo at the state in time where your file was ok.</li>
+<li>Click on the file and copy the text.</li>
+<li>Go back to RStudio, open the file, and paste in the text from when it was good.</li>
 </ul>
+<p>If you have not pushed the changes up to GitHub.</p>
+<ul>
+<li>Now you have to go to the Git command line. Git tab in RStudio and then click the cog &gt; Shell.</li>
+<li>Note, in 9 times out of 10, I would push the commit to GitHub and then use the above copy/paste to avoid using the Git command line. I would find that much faster.</li>
+</ul>
+<p>Ok, here’s the Git command to get a single file back. This works whether or not you have pushed to GitHub. The problem with this and why I don’t do it is that I usually need to look at the file. So I am scrolling back through the status of my repo in the past until I find the status that I want. Then I stare a bit and think and think. Then get a coffee and think some more. Then I scroll back through the status of the repo in the past some more and THEN I do the copy and paste. It is rarely the case that I know exactly what commit that I need to get rid of—and even rarer that I want to go completely to a status in the past.</p>
+<ul>
+<li>Open the Git bash shell</li>
+<li><code>git log</code> to find the commit hash (the long number)</li>
+<li><code>git checkout 1d0f8c2eb4e66db0a7123588ae2fad26a6338303~1 -- ./R/test.R</code> would reset test.R to one before that commit. This part <code>1d0f8c2eb4e66db0a7123588ae2fad26a6338303</code> is the bad commit hash and this part <code>~1</code> means what the file was like 1 commit before that.</li>
+</ul>
+<p>If you accidentally leave off the file name and Git says you have a detached head, use <code>git checkout master</code> to reattach your head.</p>
+</div>
+<div id="resolving-merge-conflicts-with-github-desktop" class="section level2">
+<h2>Resolving merge conflicts with GitHub Desktop</h2>
+<p>GitHub Desktop makes resolving these pretty easy.</p>
+<ol style="list-style-type: decimal">
+<li>If it tells you to fetch commits off GitHub, go ahead and do that.</li>
+<li>Now try to Pull. It’ll tell you that you have conflicts and give you options for what to do.</li>
+</ol>
 <div class="figure">
-<img src="images/pull-request-github.png" alt="" />
-<p class="caption">pull request from GitHub</p>
+<img src="images/git-merge-conflict-gh.png" alt="" />
+<p class="caption">GitHub Desktop merge conflict alert</p>
 </div>
-<pre><code>Once you have created the pull requests, you&#39;ll see that the pull request tab (in GitHub) shows that there is a request.</code></pre>
 <ul>
-<li><p>Click on the request. You have 2 options.</p>
+<li>Click the ‘x’ and Git will alter <code>hello.R</code> and show where the conflicts are. You then edit <code>hello.R</code> in RStudio to fix the conflicts.</li>
+<li>If you know what file you want to use, use the little arrow dropdown to use the file on GitHub or on your local machine.</li>
+<li>Use Abort Merge to abandon the merge. Your changes to <code>hello.R</code> are still there.
 <ul>
-<li>Close it (don’t merge). If you close it, you can reopen it later.</li>
-<li>Merge the request.</li>
+<li>Click on History, right click the commit and revert to get rid of it. All file changes that are part of that commit will disappear! You can revert the revert if needed.</li>
+<li>Go into <code>hello.R</code> and fix the conflict. Git won’t have marked it so it might be hard to find.</li>
 </ul></li>
-<li><p>You have done the merge on GitHub. You still need to do a Pull to get that change into your local repository.</p></li>
-<li><p>Delete your branch when you are done with it. All the history is saved. There is no reason keep branches that you are done with.</p></li>
 </ul>
+<p><strong>Those using Git in RStudio</strong> Merge conflicts are a bit of a disaster in RStudio, and RStudio gives no warning before it mucks up your files. So it you are pushing/pulling from RStudio be sure to practice on some toy merge conflicts before you run into a real one.</p>
 </div>
-<div id="branch-actions-from-github-desktop" class="section level3">
-<h3>Branch actions from GitHub Desktop</h3>
-<p>The branch toolbar in GitHub Desktop let’s keep branches up to date with each other.</p>
-<p>Let’s say I am working on <code>littleforecast.R</code> in the master branch while working on <code>hello.R</code> in the hello_branch. I want to keep these synced up.</p>
+<div id="pro-tip-i-want-time-stamps-back" class="section level2">
+<h2>Pro tip: I want time-stamps back!</h2>
+<p><em>Time stamps</em> is something that you probably use to see when a file was last changed. Time stamps lose meaning if you use <code>git checkout</code> for branches or tags. In fact, in the Git-verse, time doesn’t exist since Git workflow is not necessarily linear. I find this very confusing so I purposely work in a linear fashion with Git.</p>
+<p>To fix time stamps when you use <code>git checkout</code> (i.e. switch branches), you can use a <code>post-checkout</code> file in the <code>.git/hooks</code> folder.</p>
+<ol style="list-style-type: decimal">
+<li>Open <code>post-checkout.sample</code>. Save as <code>post-checkout</code></li>
+<li>Copy this into that file</li>
+</ol>
+<pre><code>#!/bin/sh -e
+
+OS=${OS:-`uname`}
+
+if [ &quot;$OS&quot; = &#39;Darwin&#39; ]; then
+  get_touch_time() {
+    date -r ${unixtime} &#39;+%Y%m%d%H%M.%S&#39;
+  }
+else
+  get_touch_time() {
+    date -d @${unixtime} &#39;+%Y%m%d%H%M.%S&#39;
+  }
+fi
+
+# all git files
+git ls-tree -r --name-only HEAD &gt; .git_ls-tree_r_name-only_HEAD
+
+# modified git files
+git diff --name-only &gt; .git_diff_name-only
+
+# only restore files not modified
+comm -2 -3 .git_ls-tree_r_name-only_HEAD .git_diff_name-only | while read filename; do
+  unixtime=$(git log -1 --format=&quot;%at&quot; -- &quot;${filename}&quot;)
+  touchtime=$(get_touch_time)
+  # echo ${touchtime} &quot;${filename}&quot;
+  touch -t ${touchtime} &quot;${filename}&quot;
+done
+
+rm .git_ls-tree_r_name-only_HEAD .git_diff_name-only</code></pre>
+</div>
+</div>
+<div id="topics-i-didnt-cover" class="section level1">
+<h1>Topics I didn’t cover:</h1>
 <ul>
-<li><strong>Compare</strong> I can compare branches and look at the differences.</li>
-<li><strong>Merge into current branch</strong> I can merge changes from one branch into another branch. It will let you see the changes before you decide to merge.</li>
-<li><strong>Update from master</strong> This immediately merge changes from master into your branch. It won’t ask you. So you need to revert the change if you don’t like it.</li>
+<li><p>Working with Git from the <strong>command line</strong>. For most of you, you have no need for this and this is just a good way to mess up your repository. The exception is a few unique cases where you do need to issue a Git command (like <code>git push</code> first time you need to give RStudio your GitHub login).</p></li>
+<li><p>How to do a <strong>pull requests</strong>. I’ll post a video. Most of you won’t need this.</p></li>
+<li><p><strong>Branches</strong> You won’t need branches when starting, in fact I rarely use them and I have over 100 repositories. I only use branches in a public R package that I maintain.</p></li>
 </ul>
-<p>This is similar to a pull request but happening locally. When a team is working on different branches, they would use pull requests.</p>
-</div>
-<div id="branch-actions-from-github" class="section level3">
-<h3>Branch actions from GitHub</h3>
-<p>You can do the same actions from GitHub.</p>
-</div>
-</div>
 </div>
 
 <hr>

@@ -1,0 +1,128 @@
+---
+title: "GitHub Basics"
+output:
+  html_document:
+    toc: true
+    include:
+      after_body: footer.html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+set.seed(1234)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(kableExtra)
+dt <- data.frame("Compartmentalized", "Documented", "Extendible", "Reproducible", "Robust")
+kable(dt, col.names=NULL) %>%
+  kable_styling(full_width = TRUE) %>%
+  row_spec(1, bold = FALSE, color = "white", background = "blue") %>%
+  column_spec(column = 1:5, width = "20%")
+```
+
+
+# Overview
+
+Key GitHub.com skills.
+
+* How to use issues.
+* How to use releases.
+* How to use organizations---for yourself or a team.
+
+Getting started collaborating using Git and GitHub
+
+* How to set things up in your shared repository in order to work as a small team.
+
+# Key GitHub skills
+
+## Issues
+
+* Use the Issues in GitHub to enter any issues (bugs, feature changes, notes).
+
+![](images/issues.png)
+
+![](images/issues2.png)
+
+* Add code to your issue so you can easily recreate the problem.
+
+![](images/code-issues.png)
+
+* You can reference issues in your commits with #<num of the issue>
+
+## Releases
+
+* The release or tag feature in GitHub will help you go back in time and document working states
+* Use a NEWS file to keep a notebook of all your major changes.
+
+*Pro tip* checkout the state of the repository at the time of a release. From the terminal:
+```
+git checkout v1.0
+```
+When done:
+```
+git switch -
+```
+
+**Warning `git checkout ...` will change all your time stamps.**
+
+## Organizations
+
+I use this to organize collections of repositories.
+
+* Share access to repos across a team
+* Have team discussions
+* Have a organization landing page
+
+## GitHub Pages
+
+Make a simple landing page of your repository.
+
+## Complex Examples
+
+* [College Scorecard](https://collegescorecard.ed.gov/) This is not a bespoke website. It is a Jekyll site being generated from GitHub. All the data driving the College Scorescard is available on the GitHub repository maintained by the Department of Education.
+
+* [NMFS Fish Tools](https://nmfs-fish-tools.github.io/) Here is an example of one of the tools: [r4MAS](https://nmfs-fish-tools.github.io/r4MAS/index.html). Again this is not a bespoke website. In this case, r4MASS is an R package and a tool called pkgdown was used to create this site which GitHub shows as webpage in your browser.
+
+## Pro tip: Using GitHub Actions
+
+* [Eli's NMFS R UG presentation on GitHub Actions](https://github.com/nmfs-openscapes/12-07-21-GitHub-Actions) 
+
+You may have heard about them. Let's see it in action. We make a GitHub Action that will update our Readme file whenever a relevant change happens. We'll see a bigger example next week with RMarkdown reports.
+
+To set up our action:
+
+* Create a .github folder in our repo
+* Create a workflows folder in the .github folder
+* Create a file `render-readme.yml` with the instructions for what to do to make the Readme.md file.
+
+Our yml file has a set of instructions to the server that is going to do the work.
+
+```
+on:
+  push:
+    paths:
+      - README.Rmd
+      - test.csv
+
+name: Render README
+
+jobs:
+  render:
+    name: Render README
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@v1
+      - uses: r-lib/actions/setup-pandoc@v1
+      - name: Install packages
+        run: Rscript -e 'install.packages(c("rmarkdown", "knitr"))'
+      - name: Render README
+        run: Rscript -e 'rmarkdown::render("README.Rmd", output_format = "md_document")'
+      - name: Commit results
+        run: |
+          git commit README.md -m 'Re-build README.Rmd' || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
+```
+
+

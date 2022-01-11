@@ -13,11 +13,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Using Git in RStudio
 
-You can read a whole book about Git and R [Happy Git with R](http://happygitwithr.com/index.html).
+The hard part of using Git in RStudio is getting it set-up.
 
-Using Git in RStudio can be hard to set-up and hard to debug if you run into problems.  If you want to use it, [read these instructions](https://cfss.uchicago.edu/git07.html).
+1. Telling RStudio where `git.exe` resides.
+2. Telling RStudio how to communicate with GitHub.
 
-In particular, read the part about how to set-up so you don't have to enter your username and password for every commmit.
+Go to the [set-up instructions](set-up.html) and scroll down to the section on how to set-up RStudio with Git. Follow instructions carefully and slowly.
 
 ## Creating a local repository and then getting it on GitHub (or GitLab)
 

@@ -4,34 +4,33 @@ title: "PSAW 2022 Training Sessions"
 
 <img style="float: right;" src="images/tools-logo-transparent.png" width=30%>
 
-The focus of these training session is practical skills and tools. Each session will be stand-alone. While the sessions will be introductory, I will give you links to my GitHub repositories that illustrate more complex examples (and that you can copy and build on).
+The focus of these training session is practical skills and tools. If you want to follow along by doing, go to [Set-up](set-up.html) to get set-up.
 
-**About me**: I am a modeler/applied mathematician and I am immersed in R and the Open Science community. I develop R packages for public use and teach workshops on R and reproducible research. [RWorkflow Workshops](https://rverse-tutorials.github.io/RVerse-Tutorials/)
+<hr>
 
-## Set-up for the workshop
+## Introduction to Git/GitHub Jan 12
 
-Before the workshops, go to [Set-up](set-up.html) for instructions. Unless you will only be listening, you'll need a [GitHub](https://github.com/) account. To actively participate in the activities, you'll want either R, RStudio and GitHub Desktop installed on your computer or you can use [RStudio Cloud](https://rstudio.cloud/). If you do the latter, you don't need to install any software.
+* [Part 1](git-part1.html). The 3 key Git skills. These 3 basic skills are all you need for 95% of your work with Git repositories.
 
-## PSAW 2022 Training Sessions
+* [Part 2](git-part2.html). GitHub skills. We'll learn how to use issues and releases on GitHub to be more efficient either working alone or in a team. I'll show you how I use organizations to organize my repositories and some of the nice 'landing page' features of GitHub.
 
-### Introduction to Git/GitHub Jan 12
-
-* [Part 1](week2-moregit.html). The 3 key Git skills. These 3 basic skills are all you need for 95% of your work with Git repositories. [The lecture notes](week2.html)
-
-* [Part 2](week3-github.html). GitHub skills. We'll learn how to use issues and releases on GitHub to be more efficient either working alone or in a team. I'll show you how I use organizations to organize my repositories and some of the nice 'landing page' features of GitHub. For those curious about GitHub Actions, I give you a short demo on that too. [The lecture notes](week3.html)
+* [Part 3](git-part3.html). More Git skills. Dealing with merge conflicts.
 
 * [Using Git from RStudio](Git-RStudio.html) Introduction to workflow using RStudio and Git/GitHub.
 
 
-### Introduction to RStudio Cloud
+### Introduction to RStudio Cloud Jan 12
 
-### R Packages
+<!--
+### Building a Data R Packages
 
 * [Part 1](week6.html). Intro to R packages for data and code. How to build an R package in RStudio. In the second half of the lecture, I will show you how to make an R data package and what that can do to allow data documentation, data revision tracking, data versioning and data sharing.
 
 * [Part 2](week7.html). Intro to **roxygen2** for documentation and **pkgdown** for package websites. Even if you don't do the coding on your team, you should be aware of how documentation works so you can contribute and the tools for automating tasks like a project website so your team doesn't fall into inefficient workflows.
 
 * [Part 3](week8.html). Advanced topics for developers. How to set up a NAMESPACE, passing `R CMD check`, debugging tools, coding GitHub Actions workflows, C++ code in your package. I am going to pass on tips to help you understand how these things work so you don't waste hours figuring it out or fall back on hacky solutions.
+
+-->
 
 
 <hr>

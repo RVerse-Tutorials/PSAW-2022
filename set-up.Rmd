@@ -11,21 +11,25 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Everything you'll be using is free. You will need a GitHub (free) account. Sign up here [GitHub](https://github.com/).
+Everything you'll be using is free. To follow along with the material on your local computer:
 
-## Fresh install R, Studio, GH Desktop
+* You will need a GitHub (free) account. Sign up here [GitHub](https://github.com/). 
 
-To follow along with the material on your own computer, install the following:
+## Git GUI
 
-* Install [R](https://cran.r-project.org/)
-* Install [RStudio](https://www.rstudio.com/products/rstudio/download/)
-* Install [GitHub Desktop](https://desktop.github.com/)
+To interact with GitHub, we need an interface. Options:
 
-To follow along with RStudio Cloud (with a browser) instead of installing programs (or if you following along on a phone or tablet): Sign up for an [RStudio Cloud](https://rstudio.cloud/) account.
+1. I will be showing [GitHub Desktop](https://desktop.github.com/), a simple interface that I recommend. Download that if you want to try it out.
 
-**Already have R and RStudio installed?** See [update R](#updateR) for instructions on updating R to the most recent version. This is not required for the workshop, but it is good to keep R and RStudio updated.
+2. You can also use RStudio Cloud (with a browser) instead of installing programs (or if you following along on a phone or tablet): Sign up for an [RStudio Cloud](https://rstudio.cloud/) account.
 
-## Git using GitHub Desktop
+3. RStudio. You can interact with Git and GitHub within RStudio. Scroll down for set-up instructions. Note, it is non-trivial so you might want to start with GitHub Desktop, which only requires downloading and logging into your GitHub account.
+
+4. JupyterLab user (Python)? The [jupyter-git extension](https://github.com/jupyterlab/jupyterlab-git) is nice if you want to interact within JupyterLab.
+
+5. Command line. I'm not going to show that. Not needed for most users.
+
+## Set-up GitHub Desktop
 
 For the class, I am going to focus on using Git from GitHub Desktop as it is easy to use and does not have the headaches of Git using RStudio.
 
@@ -33,6 +37,10 @@ For the class, I am going to focus on using Git from GitHub Desktop as it is eas
 2. Install [GitHub Desktop](https://desktop.github.com/)
 3. Open GitHub Desktop, go to Preferences, click Accounts and login to your GitHub account.
 4. Still in Preferences, click Git and enter your name and email.
+
+You can stop here if you are using GitHub Desktop.
+
+<hr>
 
 ## Git in RStudio Cloud
 
@@ -51,9 +59,7 @@ git config --global user.name "<your name>"
 
 ## Git from RStudio
 
-Pushing to GitHub from RStudio is a hassle because there are many steps to getting the credentials (passwords) properly communicated. These steps are operating system dependent and can especially be hard if you don't have admin access on a PC.
-
-However, you can clone repositories from GitHub and commit your changes (without pushing to GitHub) without having to do credentials. All you need to do is tell RStudio where  `git.exe` is on your computer. If your repo is public, you can even pull without RStudio knowing your GitHub password.
+Setting up to use Git from RStudio involves two steps: telling RStudio where `git.exe` is and telling RStudio how to communicate with GitHub.
 
 ### Telling RStudio where `git.exe` is
 
@@ -61,9 +67,9 @@ However, you can clone repositories from GitHub and commit your changes (without
 2. Click Tools > Global Options
 3. Click Git/SVN on the left
 4. Click the little check box at the top
-5. In the Git executible box, paste in the location of `git.exe`
+5. In the Git executable box, paste in the location of `git.exe`
 * On a Mac? It is at `/usr/bin/git` Just paste that in.
-* On a PC? Look (by opening a finder window) in the following places. Try the GitHubDesktop one first.
+* On a PC? Look (by opening a finder window) in the following places. Try the GitHub Desktop one first.
     * C:/Program Files/Git/bin/git.exe
     * C:/Users/your.username/AppData/Local/Programs/Git/bin/git.exe
     * C:/Users/your.username/AppData/Local/GitHubDesktop/app-2.8.3/resources/app/git/cmd/git.exe

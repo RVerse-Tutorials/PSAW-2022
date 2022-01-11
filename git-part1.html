@@ -426,69 +426,152 @@ Robust
 </tr>
 </tbody>
 </table>
-<div id="branches" class="section level1">
-<h1>Branches</h1>
-<p>A copy of your repository that you can work on without changing the main repository. Once you are done, you incorporate the changes into the main repository. <strong>Most of you should steer clear of branches</strong> because they are incompatible with our common workflows!! I maintain 40+ repositories and use branches on only 2 of them.</p>
-<p>When your switch to a branch, i.e. <code>checkout</code> a branch, it changes the files in that folder to the state of the branch. The info to restore the files to the main branch state is in the <code>.git</code> folder.</p>
-<p>Let’s say you have a repository (folder) for all your common functions, <code>common</code> and in that a folder called <code>R</code> with a function <code>basicplot.R</code>. You decide to create a branch to play around with some other options for <code>basicplot.R</code>. So you switch branches to branch <code>temp</code> and make some sandboxy changes to <code>basicplot.R</code>. Those changes are in your file system, not on some magic separate ‘branch’. Any call to like this in your other code is reading that sandboxy <code>basicplot.R</code>.</p>
+<div id="what-is-git-and-github" class="section level1">
+<h1>What is Git and GitHub?</h1>
+<p><strong>Git</strong> A program to track your file changes and create a history of those changes. Creates a ‘container’ for a set of files called a repository.</p>
+<p><strong>GitHub</strong> A website to host these repositories and allow you to sync local copies (on your computer) to the website. <em>Lots</em> of functionality built on top of this.</p>
+<div id="some-basic-git-jargon" class="section level2">
+<h2>Some basic Git jargon</h2>
 <ul>
-<li><code>source(</code>~/Documents/common/R/basicplot.R`)</li>
-</ul>
-<p>Let’s say you have you hard drive on an automatic backup system. It will backup the branch <code>temp</code>. The main branch info is in the <code>.git</code> folder but this will be pretty confusing if someone looks at the files.</p>
-<p>For this reason, switching branches will reset the time stamp of <code>basicplot.R</code> when you switch back to the main branch.</p>
-<div id="working-with-branches" class="section level2">
-<h2>Working with branches</h2>
-<p>Why use branches?</p>
-<ul>
-<li>Let’s say you have a function that works fine and you want to make a bunch of changes but don’t want to break the old version. Work on a branch to sandbox your changes and merge back into master when done.</li>
-<li>Let’s say you want to try out an idea or new feature. Develop on a branch and merge into master when done.</li>
-<li>Let’s say you want to do a major revamp of your code, but you are worried that you might want to abandon this. Work on a branch. If you decide against the change, you just delete the branch.</li>
-<li>Will your work break code? Make a branch.</li>
-</ul>
-<p>When you start, keep it simple. Use a branch for one file or two. Work on the file and then merge it back into master. Then get rid of the branch. It’s not necessary to use branches but if you do a lot of coding or work on packages, then getting comfortable with them will help you out.</p>
-<div id="make-a-new-branch-in-rstudio" class="section level3">
-<h3>Make a new branch in RStudio</h3>
-<p>Click the new branch icon and give your branch a name. Give it an INFORMATIVE name. <code>tmp</code>, <code>foo</code> are bad. <code>hello_branch</code> is good as it tells what this branch is for (working on the <code>hello.R</code> file). <img src="images/new-branch.png" alt="new branch" /></p>
-<p>Now that you have a branch, it is critical that you pay attention to the Git tab and know where you are working. RStudio will remember what branch you are on.</p>
-<p>Let’s make a change to <code>hello.R</code> on hello_branch, put to GitHub and see what the two branches look like.</p>
-</div>
-<div id="pull-request-merge-our-branch-with-master" class="section level3">
-<h3>Pull request, merge our branch with master</h3>
-<p>There are a few ways to do a pull request.</p>
-<ul>
-<li><p>You can do it from GitHub Desktop. It’ll just redirect you to GitHub however.</p></li>
-<li><p>You can do it from GitHub.</p></li>
-</ul>
-<div class="figure">
-<img src="images/pull-request-github.png" alt="" />
-<p class="caption">pull request from GitHub</p>
-</div>
-<pre><code>Once you have created the pull requests, you&#39;ll see that the pull request tab (in GitHub) shows that there is a request.</code></pre>
-<ul>
-<li><p>Click on the request. You have 2 options.</p>
-<ul>
-<li>Close it (don’t merge). If you close it, you can reopen it later.</li>
-<li>Merge the request.</li>
-</ul></li>
-<li><p>You have done the merge on GitHub. You still need to do a Pull to get that change into your local repository.</p></li>
-<li><p>Delete your branch when you are done with it. All the history is saved. There is no reason keep branches that you are done with.</p></li>
+<li>Repo: Repository. It is your code and the record of your changes. In a hidden folder called <code>.git</code> (so if you wanted to get rid of the history and other Git info, you could delete that folder). You have a local repo and a remote repo (on GitHub/GitLab).</li>
+<li>Actions: Commit, Push, Pull</li>
+<li>Git: The program that keeps track of the changes on local and remote(“origin”) repo.</li>
+<li>Git GUIs: A graphical interface for Git (which is command line). There are <a href="https://git-scm.com/downloads/guis">many</a>. I am teaching an easy-entry one, <a href="https://desktop.github.com/">GitHub Desktop</a>.</li>
 </ul>
 </div>
-<div id="branch-actions-from-github-desktop" class="section level3">
-<h3>Branch actions from GitHub Desktop</h3>
-<p>The branch toolbar in GitHub Desktop let’s keep branches up to date with each other.</p>
-<p>Let’s say I am working on <code>littleforecast.R</code> in the master branch while working on <code>hello.R</code> in the hello_branch. I want to keep these synced up.</p>
+</div>
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>Today I will cover the basic Git/GitHub skills (and info) that are all most people need for 95% of their work. I am using <a href="https://desktop.github.com/">GitHub Desktop</a>. If you want to use Git from RStudio, <a href="set-up.html">go to set-up</a> and scroll to the section on RStudio and Git.</p>
+<p>Simple Workflow:</p>
 <ul>
-<li><strong>Compare</strong> I can compare branches and look at the differences.</li>
-<li><strong>Merge into current branch</strong> I can merge changes from one branch into another branch. It will let you see the changes before you decide to merge.</li>
-<li><strong>Update from master</strong> This immediately merge changes from master into your branch. It won’t ask you. So you need to revert the change if you don’t like it.</li>
+<li>Make local (on your computer) changes to code.</li>
+<li>Record what those changes were about and commit to the code change record (history).</li>
+<li>Push those changes to your remote repository (aka origin)</li>
 </ul>
-<p>This is similar to a pull request but happening locally. When a team is working on different branches, they would use pull requests.</p>
+<p>We’ll do this</p>
+<p><img src="images/git-linear-flow-2.png" /></p>
+<p>Not this, i.e. what you would see if you Google “Git”.</p>
+<p><img src="images/git-online.png" />{75%}</p>
 </div>
-<div id="branch-actions-from-github" class="section level3">
-<h3>Branch actions from GitHub</h3>
-<p>You can do the same actions from GitHub.</p>
+<div id="the-3-skills" class="section level1">
+<h1>The 3 Skills</h1>
+<p>Repository skills (using GitHub Desktop)</p>
+<ul>
+<li><p>Skill 1: Create a blank repo on GitHub</p></li>
+<li><p>Skill 2: Clone one of your <strong>GitHub</strong> repos onto your computer</p></li>
+<li><p>Skill 0: Open your repository in your editing platform. I am going to use RStudio, but you use whatever you edit in.</p></li>
+<li><p>Skill 3: Commit local changes and push GitHub</p></li>
+<li><p>Skill 1b: How to clone someone else’s GitHub repository</p></li>
+</ul>
+<div id="skill-1-create-a-blank-repo-on-github" class="section level2">
+<h2>Skill 1: Create a blank repo on GitHub</h2>
+<ol style="list-style-type: decimal">
+<li>Click the + in the upper left from YOUR GitHub page.</li>
+<li>Click new and add the Readme file and .gitignore</li>
+</ol>
 </div>
+<div id="skill-2-clone-your-repo-to-your-computer" class="section level2">
+<h2>Skill 2: Clone your repo to your computer</h2>
+<ol style="list-style-type: decimal">
+<li>Copy the URL of your repo. <code>https://www.github.com/yourname/yourrepo</code></li>
+<li>Open GitHub Desktop on your computer. Click File &gt; Clone Repository</li>
+<li>Click URL in the box that pops up and paste in the URL above</li>
+<li>Double check that you are saving the repo in the right place</li>
+</ol>
+</div>
+<div id="skill-0-make-project-in-rstudio" class="section level2">
+<h2>Skill 0: Make project in RStudio</h2>
+<ol style="list-style-type: decimal">
+<li>Open RStudio and click the project tab in the top right and select, <code>New Project</code>.</li>
+<li>Select <code>Existing Directory</code> and navigate to the directory where you just saved the repo.</li>
+<li>Click ‘Create project’</li>
+</ol>
+</div>
+<div id="skill-3-commit-and-push-changes" class="section level2">
+<h2>Skill 3: Commit and push changes</h2>
+<ol style="list-style-type: decimal">
+<li>Make some changes to a file or add a file.</li>
+<li>Open GitHub Desktop, click the little checkboxes next to the changes.</li>
+<li>Add a commit comment, commit.</li>
+<li>Click Push at top to push the changes to GitHub</li>
+</ol>
+</div>
+<div id="skill-1b-copy-a-repo-on-github" class="section level2">
+<h2>Skill 1b: Copy a repo on GitHub</h2>
+<p>You can clone your own or other people’s repos.</p>
+<ol style="list-style-type: decimal">
+<li>In a browser, go to the GitHub repository you want to copy.</li>
+<li>Copy its url.</li>
+<li>Navigate to your GitHub page: click your icon in the upper right and then ‘your repositories’</li>
+<li>Click the <code>+</code> in top right and click <code>import repository</code>. Paste in the url and give your repo a name.</li>
+<li>Use Skill #1 to clone your new repo to your computer</li>
+</ol>
+</div>
+<div id="skill-1c.-use-an-existing-repository-as-a-template-for-something-new" class="section level2">
+<h2>Skill 1c. Use an existing repository as a template for something new</h2>
+<p>Let say you want to make a copy of one of your GitHub repositories and use it as a template to make something brand new.</p>
+<ol style="list-style-type: decimal">
+<li>Clone the repository that you will be building off of to GitHub</li>
+<li>Use skill #1 to pull that repository onto your computer</li>
+<li>Get rid of any files you don’t want in the new repo and use skill #3 to push those to GitHub.</li>
+</ol>
+</div>
+</div>
+<div id="other-useful-but-not-critical-skills" class="section level1">
+<h1>Other useful but not critical skills</h1>
+<div id="pull-changes-on-github" class="section level2">
+<h2>Pull changes on GitHub</h2>
+<ol style="list-style-type: decimal">
+<li>Make some changes directly on GitHub</li>
+<li>Click Pull in GitHub Desktop</li>
+</ol>
+</div>
+<div id="make-an-existing-folder-on-your-computer-a-github-repository" class="section level2">
+<h2>Make an existing folder on your computer a GitHub repository</h2>
+<ol style="list-style-type: decimal">
+<li>Use skill #1 to create a blank repo on GitHub and clone onto your computer</li>
+<li>Copy the files you want to your new repository folder</li>
+<li>Use skill #3 to push those to GitHub</li>
+</ol>
+<p>Note there are some easier ways to do this but the above is how to do it with your skills 1-3.</p>
+</div>
+</div>
+<div id="definitions" class="section level1">
+<h1>Definitions</h1>
+<div id="forking-versus-cloning" class="section level2">
+<h2>Forking versus Cloning</h2>
+<p>Forking is if you are contributing to someone else’s repository. In that case, you need to make ‘pull requests’. Pull request = ‘here is a suggested change’ request.</p>
+<p>Cloning is if you want your own copy of the repository because you want to make your own version of the code or use it as a starting point for your own project. Or you need to clone a blank repository to get started on a project.</p>
+</div>
+<div id="merge-conflicts" class="section level2">
+<h2>Merge conflicts</h2>
+<p>Merge conflicts happen when there are changes to a file on your remote repository (GitHub) but also changes to that same file on your local repository. Git doesn’t know how to resolve the conflicting changes and needs your help. GitHub Desktop will warn you and give you some helpful options to resolve these.</p>
+</div>
+<div id="branches" class="section level2">
+<h2>Branches</h2>
+<p>A copy of your repository that you can work on without changing the main repository. Once you are done, you incorporate the changes into the main repository. <strong>Most of you should steer clear of branches</strong> because they are incompatible with our common workflows!! I maintain many repositories and use branches on only 2 of them.</p>
+</div>
+</div>
+<div id="review-a-workflow-to-minimize-headaches" class="section level1">
+<h1>Review: A workflow to minimize headaches</h1>
+<ul>
+<li>Open GitHub Desktop</li>
+<li>Do a pull from GitHub</li>
+<li>Work</li>
+<li>Commit changes and push up</li>
+</ul>
+<div id="starting-out" class="section level3">
+<h3>Starting out</h3>
+<ul>
+<li>Don’t use branches when you are just starting. You might never need them.</li>
+<li>Skills 1-3 are most of what anyone needs.</li>
+<li>Get in the habit of always doing a Pull/Push before you start work in your project.</li>
+</ul>
+<p>FAQ</p>
+<ul>
+<li>Fork or clone? Which should I use?</li>
+</ul>
 </div>
 </div>
 

@@ -6,33 +6,24 @@ navbar:
   - text: Set-up
     icon: fa-clone
     href: set-up.html
-  - text: Workshop Weekly Notes
+  - text: Workshop Notes
     icon: fa-calendar
     menu:
-    - text: RStudio + Version Control
+    - text: Git Basics
       icon: fa-cogs
-      href: week1.html
-    - text: More Git/GitHub
+      href: git-part1.html
+    - text: GitHub Basics
       icon: fab fa-github-alt
-      href: week2.html
-    - text: GitHub
+      href: git-part2.html
+    - text: More Git Skills
       icon: fab fa-github
-      href: week3.html
-    - text: R packages
-      icon: fa-box
-      href: week6.html
-    - text: Roxygen and pkgdown
-      icon: fa-circle
-      href: week7.html
-    - text: More packages
-      icon: fa-box
-      href: week8.html
-  - text: Archive
+      href: git-part3.html
+  - text: More Resources
     icon: fa-folder
     href: https://rverse-tutorials.github.io/RWorkflow/
-  - text: More resources
+  - text: About Me
     icon: fa-info
-    href: links.html
+    href: aboutme.html
   right:
   - text: Repo
     icon: fab fa-github

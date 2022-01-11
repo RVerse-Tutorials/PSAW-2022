@@ -338,65 +338,30 @@ div.tocify {
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     <span class="fa fa-calendar"></span>
      
-    Workshop Weekly Notes
+    Workshop Notes
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="week1.html">
+      <a href="git-part1.html">
         <span class="fa fa-cogs"></span>
          
-        Week 1 RStudio + Version Control
+        Git Basics
       </a>
     </li>
     <li>
-      <a href="week2.html">
+      <a href="git-part2.html">
         <span class="fab fa-github-alt"></span>
          
-        Week 2 More Git/GitHub
+        GitHub Basics
       </a>
     </li>
     <li>
-      <a href="week3.html">
+      <a href="git-part3.html">
         <span class="fab fa-github"></span>
          
-        Week 3 GitHub
-      </a>
-    </li>
-    <li>
-      <a href="week4.html">
-        <span class="fa fa-file-code"></span>
-         
-        Week 4 R Markdown
-      </a>
-    </li>
-    <li>
-      <a href="week5.html">
-        <span class="fa fa-chart-line"></span>
-         
-        Week 5 ggplot2
-      </a>
-    </li>
-    <li>
-      <a href="week6.html">
-        <span class="fa fa-box"></span>
-         
-        Week 6 packages
-      </a>
-    </li>
-    <li>
-      <a href="week7.html">
-        <span class="fa fa-circle"></span>
-         
-        Week 7 roxygen and pkgdown
-      </a>
-    </li>
-    <li>
-      <a href="week8.html">
-        <span class="fa fa-box"></span>
-         
-        Week 8 more packages
+        More Git Skills
       </a>
     </li>
   </ul>
@@ -405,41 +370,24 @@ div.tocify {
   <a href="https://rverse-tutorials.github.io/RWorkflow/">
     <span class="fa fa-folder"></span>
      
-    Archive
+    More Resources
   </a>
 </li>
 <li>
-  <a href="https://rverse-tutorials.github.io/RWorkflow-NWFSC-2020">
-    <span class="fa fa-clock"></span>
-     
-    2020 website
-  </a>
-</li>
-<li>
-  <a href="noaa.html">
-    <span class="fa fa-fish"></span>
-     
-    NOAA
-  </a>
-</li>
-<li>
-  <a href="links.html">
+  <a href="aboutme.html">
     <span class="fa fa-info"></span>
      
-    More resources
+    About Me
   </a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/RVerse-Tutorials/RWorkflow-NWFSC-2021">
+  <a href="https://github.com/RVerse-Tutorials/PSAW-2022">
     <span class="fab fa-github"></span>
      
     Repo
   </a>
-</li>
-<li>
-  <a href="https://github.com/orgs/RWorkflow-Workshop-2021">Org</a>
 </li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -455,20 +403,23 @@ div.tocify {
 </div>
 
 
-<p>Everything you’ll be using is free. You will need a GitHub (free) account. Sign up here <a href="https://github.com/">GitHub</a>.</p>
-<div id="fresh-install-r-studio-gh-desktop" class="section level2">
-<h2>Fresh install R, Studio, GH Desktop</h2>
-<p>To follow along with the material on your own computer, install the following:</p>
+<p>Everything you’ll be using is free. To follow along with the material on your local computer:</p>
 <ul>
-<li>Install <a href="https://cran.r-project.org/">R</a></li>
-<li>Install <a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a></li>
-<li>Install <a href="https://desktop.github.com/">GitHub Desktop</a></li>
+<li>You will need a GitHub (free) account. Sign up here <a href="https://github.com/">GitHub</a>.</li>
 </ul>
-<p>To follow along with RStudio Cloud (with a browser) instead of installing programs (or if you following along on a phone or tablet): Sign up for an <a href="https://rstudio.cloud/">RStudio Cloud</a> account.</p>
-<p><strong>Already have R and RStudio installed?</strong> See <a href="#updateR">update R</a> for instructions on updating R to the most recent version. This is not required for the workshop, but it is good to keep R and RStudio updated.</p>
+<div id="git-gui" class="section level2">
+<h2>Git GUI</h2>
+<p>To interact with GitHub, we need an interface. Options:</p>
+<ol style="list-style-type: decimal">
+<li><p>I will be showing <a href="https://desktop.github.com/">GitHub Desktop</a>, a simple interface that I recommend. Download that if you want to try it out.</p></li>
+<li><p>You can also use RStudio Cloud (with a browser) instead of installing programs (or if you following along on a phone or tablet): Sign up for an <a href="https://rstudio.cloud/">RStudio Cloud</a> account.</p></li>
+<li><p>RStudio. You can interact with Git and GitHub within RStudio. Scroll down for set-up instructions. Note, it is non-trivial so you might want to start with GitHub Desktop, which only requires downloading and logging into your GitHub account.</p></li>
+<li><p>JupyterLab user (Python)? The <a href="https://github.com/jupyterlab/jupyterlab-git">jupyter-git extension</a> is nice if you want to interact within JupyterLab.</p></li>
+<li><p>Command line. I’m not going to show that. Not needed for most users.</p></li>
+</ol>
 </div>
-<div id="git-using-github-desktop" class="section level2">
-<h2>Git using GitHub Desktop</h2>
+<div id="set-up-github-desktop" class="section level2">
+<h2>Set-up GitHub Desktop</h2>
 <p>For the class, I am going to focus on using Git from GitHub Desktop as it is easy to use and does not have the headaches of Git using RStudio.</p>
 <ol style="list-style-type: decimal">
 <li>Get a <a href="https://github.com/">GitHub</a> account</li>
@@ -476,6 +427,8 @@ div.tocify {
 <li>Open GitHub Desktop, go to Preferences, click Accounts and login to your GitHub account.</li>
 <li>Still in Preferences, click Git and enter your name and email.</li>
 </ol>
+<p>You can stop here if you are using GitHub Desktop.</p>
+<hr>
 </div>
 <div id="git-in-rstudio-cloud" class="section level2">
 <h2>Git in RStudio Cloud</h2>
@@ -490,8 +443,7 @@ git config --global user.name &quot;&lt;your name&gt;&quot;</code></pre>
 </div>
 <div id="git-from-rstudio" class="section level2">
 <h2>Git from RStudio</h2>
-<p>Pushing to GitHub from RStudio is a hassle because there are many steps to getting the credentials (passwords) properly communicated. These steps are operating system dependent and can especially be hard if you don’t have admin access on a PC.</p>
-<p>However, you can clone repositories from GitHub and commit your changes (without pushing to GitHub) without having to do credentials. All you need to do is tell RStudio where <code>git.exe</code> is on your computer. If your repo is public, you can even pull without RStudio knowing your GitHub password.</p>
+<p>Setting up to use Git from RStudio involves two steps: telling RStudio where <code>git.exe</code> is and telling RStudio how to communicate with GitHub.</p>
 <div id="telling-rstudio-where-git.exe-is" class="section level3">
 <h3>Telling RStudio where <code>git.exe</code> is</h3>
 <ol style="list-style-type: decimal">
@@ -499,11 +451,11 @@ git config --global user.name &quot;&lt;your name&gt;&quot;</code></pre>
 <li>Click Tools &gt; Global Options</li>
 <li>Click Git/SVN on the left</li>
 <li>Click the little check box at the top</li>
-<li>In the Git executible box, paste in the location of <code>git.exe</code></li>
+<li>In the Git executable box, paste in the location of <code>git.exe</code></li>
 </ol>
 <ul>
 <li>On a Mac? It is at <code>/usr/bin/git</code> Just paste that in.</li>
-<li>On a PC? Look (by opening a finder window) in the following places. Try the GitHubDesktop one first.
+<li>On a PC? Look (by opening a finder window) in the following places. Try the GitHub Desktop one first.
 <ul>
 <li>C:/Program Files/Git/bin/git.exe</li>
 <li>C:/Users/your.username/AppData/Local/Programs/Git/bin/git.exe</li>

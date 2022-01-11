@@ -340,65 +340,30 @@ div.tocify {
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     <span class="fa fa-calendar"></span>
      
-    Workshop Weekly Notes
+    Workshop Notes
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="week1.html">
+      <a href="git-part1.html">
         <span class="fa fa-cogs"></span>
          
-        Week 1 RStudio + Version Control
+        Git Basics
       </a>
     </li>
     <li>
-      <a href="week2.html">
+      <a href="git-part2.html">
         <span class="fab fa-github-alt"></span>
          
-        Week 2 More Git/GitHub
+        GitHub Basics
       </a>
     </li>
     <li>
-      <a href="week3.html">
+      <a href="git-part3.html">
         <span class="fab fa-github"></span>
          
-        Week 3 GitHub
-      </a>
-    </li>
-    <li>
-      <a href="week4.html">
-        <span class="fa fa-file-code"></span>
-         
-        Week 4 R Markdown
-      </a>
-    </li>
-    <li>
-      <a href="week5.html">
-        <span class="fa fa-chart-line"></span>
-         
-        Week 5 ggplot2
-      </a>
-    </li>
-    <li>
-      <a href="week6.html">
-        <span class="fa fa-box"></span>
-         
-        Week 6 packages
-      </a>
-    </li>
-    <li>
-      <a href="week7.html">
-        <span class="fa fa-circle"></span>
-         
-        Week 7 roxygen and pkgdown
-      </a>
-    </li>
-    <li>
-      <a href="week8.html">
-        <span class="fa fa-box"></span>
-         
-        Week 8 more packages
+        More Git Skills
       </a>
     </li>
   </ul>
@@ -407,41 +372,24 @@ div.tocify {
   <a href="https://rverse-tutorials.github.io/RWorkflow/">
     <span class="fa fa-folder"></span>
      
-    Archive
+    More Resources
   </a>
 </li>
 <li>
-  <a href="https://rverse-tutorials.github.io/RWorkflow-NWFSC-2020">
-    <span class="fa fa-clock"></span>
-     
-    2020 website
-  </a>
-</li>
-<li>
-  <a href="noaa.html">
-    <span class="fa fa-fish"></span>
-     
-    NOAA
-  </a>
-</li>
-<li>
-  <a href="links.html">
+  <a href="aboutme.html">
     <span class="fa fa-info"></span>
      
-    More resources
+    About Me
   </a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/RVerse-Tutorials/RWorkflow-NWFSC-2021">
+  <a href="https://github.com/RVerse-Tutorials/PSAW-2022">
     <span class="fab fa-github"></span>
      
     Repo
   </a>
-</li>
-<li>
-  <a href="https://github.com/orgs/RWorkflow-Workshop-2021">Org</a>
 </li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -676,9 +624,10 @@ Rprof(tmp&lt;-tempfile())
 for(i in 1:10000){ b &lt;- t(a)%*%a }
 Rprof()
 summaryRprof(tmp)$by.self</code></pre>
-<pre><code>##             self.time self.pct total.time total.pct
-## &quot;%*%&quot;            0.52    89.66       0.52     89.66
-## &quot;t.default&quot;      0.06    10.34       0.06     10.34</code></pre>
+<pre><code>##              self.time self.pct total.time total.pct
+## &quot;%*%&quot;             0.54    90.00       0.54     90.00
+## &quot;t.default&quot;       0.04     6.67       0.04      6.67
+## &quot;as.integer&quot;      0.02     3.33       0.02      3.33</code></pre>
 <pre class="r"><code>Rprof(NULL) #stop profiling</code></pre>
 </div>
 <div id="profvis-package" class="section level3">
@@ -694,7 +643,7 @@ res &lt;- microbenchmark(2 + 2, 2 + a, sum(2, a), sum(2, 2))
 ggplot2::autoplot(res)</code></pre>
 <pre><code>## Coordinate system already present. Adding new coordinate system, which will replace the existing one.</code></pre>
 <pre><code>## Warning: Transformation introduced infinite values in continuous y-axis</code></pre>
-<pre><code>## Warning: Removed 18 rows containing non-finite values (stat_ydensity).</code></pre>
+<pre><code>## Warning: Removed 15 rows containing non-finite values (stat_ydensity).</code></pre>
 <p><img src="week8-adv-packages_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>This shows an example of code using <a href="https://www.datacamp.com/community/tutorials/pipe-r-tutorial">piping</a> (<code>%&gt;%</code>) versus without. This is why I do not use piping in my simulations. It is slow though it has gotten much faster in <strong>magrittr</strong> 2.0.</p>
 <pre class="r"><code>library(magrittr)
