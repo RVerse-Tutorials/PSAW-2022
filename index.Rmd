@@ -10,6 +10,8 @@ The focus of these training session is practical skills and tools. If you want t
 
 ## Introduction to Git/GitHub Jan 12
 
+Note this is not specific to R in any way nor to computer coding per se. I will use RStudio to edit my files in the session, but you can use whatever you want to edit files.
+
 * [Part 1](git-part1.html). The 3 key Git skills. These 3 basic skills are all you need for 95% of your work with Git repositories.
 
 * [Part 2](git-part2.html). GitHub skills. We'll learn how to use issues and releases on GitHub to be more efficient either working alone or in a team. I'll show you how I use organizations to organize my repositories and some of the nice 'landing page' features of GitHub.
@@ -19,7 +21,14 @@ The focus of these training session is practical skills and tools. If you want t
 * [Using Git from RStudio](Git-RStudio.html) Introduction to workflow using RStudio and Git/GitHub.
 
 
-### Introduction to RStudio Cloud Jan 12
+## Introduction to RStudio Cloud Jan 12
+
+Note RStudio Cloud is currently specific to R and RStudio in the free mode. They are rolling out a Jupyter option (Python), but that is in beta and you have to pay (a lot).
+
+* [Part 1](rstudiocloud-part1.html). Introduction to RStudio Cloud for individuals.
+
+* [Part 2](rstudiocloud-part2.html). RStudio Cloud for instructors or those wanting to share code or collaborate on code.
+
 
 <!--
 ### Building a Data R Packages

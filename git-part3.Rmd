@@ -87,6 +87,16 @@ GitHub Desktop makes resolving these pretty easy.
     
 **Those using Git in RStudio** Merge conflicts are a bit of a disaster in RStudio, and RStudio gives no warning before it mucks up your files. So it you are pushing/pulling from RStudio be sure to practice on some toy merge conflicts before you run into a real one.
 
+## Generating Personal Access Tokens
+
+If you use a non-GitHub interface (like RStudio, GitLab, jupyter-git, etc), you need to access GitHub using a Personal Access Token not your user password.
+
+When you are asked for you username and password. **You do not enter your password!**
+    * Go to GitHub.com
+    * [Follow instructions for generating a Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) **Make sure to click the "repo" checkbox for scope*.
+    * Copy the token and use that for your password.
+
+
 ## Pro tip: I want time-stamps back!
 
 *Time stamps* is something that you probably use to see when a file was last changed. Time stamps lose meaning if you use `git checkout` for branches or tags. In fact, in the Git-verse, time doesn't exist since Git workflow is not necessarily linear. I find this very confusing so I purposely work in a linear fashion with Git.
