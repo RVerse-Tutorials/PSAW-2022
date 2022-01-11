@@ -21,12 +21,34 @@ kable(dt, col.names=NULL) %>%
   column_spec(column = 1:5, width = "20%")
 ```
 
+# What is Git and GitHub?
+
+**Git** A program to track your file changes and create a history of those changes. Creates a 'container' for a set of files called a repository.
+
+**GitHub** A website to host these repositories and allow you to sync local copies (on your computer) to the website. *Lots* of functionality built on top of this.
+
+## Basics
+
+* Repo: Repository. It is your code and the record of your changes. In a hidden folder called `.git` (so if you wanted to get rid of the history and other Git info, you could delete that folder). You have a local repo and a remote repo (on GitHub/GitLab).
+* Actions: Commit, Push, Pull
+* Git: The program that keeps track of the changes on local and remote("origin") repo.
+* Git GUIs: A graphical interface for Git (which is command line). There are [many](https://git-scm.com/downloads/guis). I am teaching an easy-entry one, [GitHub Desktop](https://desktop.github.com/).
+
+One-person Workflow (to get started):
+
+* Make local changes to code.
+* Record what those changes were about and commit to the code change record (history).
+* Push those changes to your remote repository (aka origin)
+
+![First foray into Git](images/git-intro.png)
 
 # Overview
 
-[Lecture video](https://youtu.be/TiII9trsArk)
+Today I will cover the basic Git/GitHub skills (and info) that are all most people need for 95% of their work.'
 
-This week I will the basic Git/GitHub skills (and info) that are all most NMFS scientists will need.
+
+
+# The 3 Skills
 
 Repository skills (using GitHub Desktop)
 

@@ -1,4 +1,4 @@
-name: rworkflow-workshop
+name: PSAW-2022
 output_dir: '.'
 navbar:
   title: RWorkflow
@@ -9,49 +9,35 @@ navbar:
   - text: Workshop Weekly Notes
     icon: fa-calendar
     menu:
-    - text: Week 1 RStudio + Version Control
+    - text: RStudio + Version Control
       icon: fa-cogs
       href: week1.html
-    - text: Week 2 More Git/GitHub
+    - text: More Git/GitHub
       icon: fab fa-github-alt
       href: week2.html
-    - text: Week 3 GitHub
+    - text: GitHub
       icon: fab fa-github
       href: week3.html
-    - text: Week 4 R Markdown
-      icon: fa-file-code
-      href: week4.html
-    - text: Week 5 ggplot2
-      icon: fa-chart-line
-      href: week5.html
-    - text: Week 6 packages
+    - text: R packages
       icon: fa-box
       href: week6.html
-    - text: Week 7 roxygen and pkgdown
+    - text: Roxygen and pkgdown
       icon: fa-circle
       href: week7.html
-    - text: Week 8 more packages
+    - text: More packages
       icon: fa-box
       href: week8.html
   - text: Archive
     icon: fa-folder
     href: https://rverse-tutorials.github.io/RWorkflow/
-  - text: 2020 website
-    icon: fa-clock
-    href: https://rverse-tutorials.github.io/RWorkflow-NWFSC-2020
-  - text: NOAA
-    icon: fa-fish
-    href: noaa.html
   - text: More resources
     icon: fa-info
     href: links.html
   right:
   - text: Repo
     icon: fab fa-github
-    href: https://github.com/RVerse-Tutorials/RWorkflow-NWFSC-2021
-  - text: Org
-    href: https://github.com/orgs/RWorkflow-Workshop-2021
-   
+    href: https://github.com/RVerse-Tutorials/PSAW-2022
+
 output:
   html_document:
     theme: readable
