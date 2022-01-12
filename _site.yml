@@ -26,7 +26,7 @@ navbar:
       href: rstudiocloud-part2.html
   - text: More Resources
     icon: fa-folder
-    href: https://rverse-tutorials.github.io/RWorkflow/
+    href: https://rverse-tutorials.github.io/
   - text: About Me
     icon: fa-info
     href: aboutme.html
