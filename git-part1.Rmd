@@ -51,7 +51,7 @@ We'll do this
 
 Not this, i.e. what you would see if you Google "Git".
 
-![](images/git-online.png){75%}
+![](images/git-online.png){width=400px}
 
 # The 3 Skills
 
@@ -64,6 +64,7 @@ Repository skills (using GitHub Desktop)
 
 * Skill 1b: How to clone someone else's GitHub repository
 
+![](images/git-repo-structure.png){width=200px}
 
 ## Skill 1: Create a blank repo on GitHub
 

@@ -28,10 +28,8 @@ Key GitHub.com skills.
 
 * How to use issues.
 * How to use releases.
+* A production workflow (what I do).
 * How to use organizations---for yourself or a team.
-
-Getting started collaborating using Git and GitHub
-
 * How to set things up in your shared repository in order to work as a small team.
 
 # Key GitHub skills
@@ -66,23 +64,32 @@ git switch -
 
 **Warning `git checkout ...` will change all your time stamps.**
 
+## My production workflows
+
+[MARSS R package](https://atsa-es.github.io/MARSS/)
+
+I develop on the main branch as long as I can break work into small tasks. The versions that users use are either CRAN releases or GitHub releases. I warn them that the main branch is a development branch and might be broken.
+
+### Workflow with small tasks
+
+![](images/marss-workflow-1.png)
+
+
+### Workflow when I might break things
+
+A major re-organization or new functionality that has the potential to break things is done on a branch.
+
+![](images/marss-workflow-2.png)
+
+
 ## Organizations
 
-I use this to organize collections of repositories.
+I use this to organize collections of repositories. Example: https://github.com/eeholmes
 
 * Share access to repos across a team
 * Have team discussions
 * Have a organization landing page
 
-## GitHub Pages
-
-Make a simple landing page of your repository.
-
-## Complex Examples
-
-* [College Scorecard](https://collegescorecard.ed.gov/) This is not a bespoke website. It is a Jekyll site being generated from GitHub. All the data driving the College Scorescard is available on the GitHub repository maintained by the Department of Education.
-
-* [NMFS Fish Tools](https://nmfs-fish-tools.github.io/) Here is an example of one of the tools: [r4MAS](https://nmfs-fish-tools.github.io/r4MAS/index.html). Again this is not a bespoke website. In this case, r4MASS is an R package and a tool called pkgdown was used to create this site which GitHub shows as webpage in your browser.
 
 ## Pro tip: Using GitHub Actions
 
