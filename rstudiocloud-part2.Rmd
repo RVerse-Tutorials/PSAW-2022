@@ -1,0 +1,98 @@
+---
+title: "Introduction to RStudio Cloud for Collaborating"
+output:
+  html_document:
+    toc: true
+    include:
+      after_body: footer.html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(kableExtra)
+dt <- data.frame("Compartmentalized", "Documented", "Extendible", "Reproducible", "Robust")
+kable(dt, col.names=NULL) %>%
+  kable_styling(full_width = TRUE) %>%
+  row_spec(1, bold = FALSE, color = "white", background = "blue") %>%
+  column_spec(column = 1:5, width = "20%")
+```
+
+# Overview
+
+In this half of the workshop, I'll go over some tips for how you can create workspaces for collaborating or for teaching.
+
+* Create a project that students open from a link
+* Create a shared workspace where student create projects
+* Special software: Stan, TMB, etc
+
+## Create a project for students to use
+
+In this case, we create a project that students will open from a link.
+
+https://github.com/RVerse-Tutorials/TestPackage
+
+Here is an example. Click this and you'll open a project that you can work with. https://rstudio.cloud/project/3430079
+
+Let's see how I created that.
+
+### Pros
+
+* Simple
+* Doesn't burn up your project hours
+* Doesn't matter how many students you have
+* They can work in a temporary copy or save to their account
+
+### Cons
+
+* You can't see their work
+* Not for collaborating, rather for sharing
+* If you have a Premium account, they will be much more limited in RAM
+
+## Create a workspace for students to use
+
+Demo
+
+### Pros
+
+* If you have money or institutional support, you can have lots of RAM and CPU and students can share this more powerful workspace.
+* You can see their work and give feedback or problem-solve. But you can't both be in the space at the same time.
+* Good way to collaborate with a small group on the same project (but not at the same time).
+
+### Cons
+
+* On the free account, it works up to 4 members. You need to pay a not insignificant amount of money to get a lot of students.
+* Not so sure it would scale up to 100s of students unless you are at a university (which gets steep discounts). Your RAM limit would get hit.
+
+## Installing special software
+
+One of the great features of using a cloud platform is that you can install software that would be a major hassle for your students to install:
+
+* You have no idea what operating system they are using or its vintage
+* They might not have admin access
+* Install might be (substantially) different on different operating systems
+* There could be many steps involved
+* They might be moving between machines (home, work, computer lab)
+* You might want to demo on a machine without having to install anything
+
+Sadly, you are very likely to run into the limitation of 1 gig of RAM in the Free and Free-Plus tiers. The next tier is Premium and that is $99 a month. Better option is using AWS and setting up an RStudio free server.
+
+### Examples
+
+https://rstudio.cloud/learn/guide/system-packages
+
+* JAGS works because it is already installed: https://rstudio.cloud/project/2228346
+
+* sdmTMB throws an error due to the 1 gig RAM on free: https://rstudio.cloud/project/3429862
+
+* Stan also runs in the 1 Gig RAM problem: 
+    - https://rstudio.cloud/project/2228084
+    - Using Kaggle is an option that has been suggested for short-term demos: https://www.kaggle.com/eeholmes/rstan  Watchg the RAM and you'll see that it is going over 1 Gig.
+
+
+## Cost
+
+For occasional use and code-sharing, the free plan should be fine. At most, you might need the Plus plan ($5 per month). https://rstudio.cloud/plans/free
+
