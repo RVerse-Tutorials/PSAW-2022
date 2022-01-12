@@ -85,14 +85,20 @@ https://rstudio.cloud/learn/guide/system-packages
 
 * JAGS works because it is already installed: https://rstudio.cloud/project/2228346
 
-* sdmTMB throws an error due to the 1 gig RAM on free: https://rstudio.cloud/project/3429862
+* sdmTMB throws an error due to the 1 gig RAM on free:   
+    - https://rstudio.cloud/project/3429862
+    - Could work on Kaggle but not really practical for sharing: https://www.kaggle.com/eeholmes/sdmtmb
 
 * Stan also runs in the 1 Gig RAM problem: 
     - https://rstudio.cloud/project/2228084
-    - Using Kaggle is an option that has been suggested for short-term demos: https://www.kaggle.com/eeholmes/rstan  Watchg the RAM and you'll see that it is going over 1 Gig.
+    - Using Kaggle is an option since rstan is already installed: https://www.kaggle.com/eeholmes/rstan  Watchg the RAM and you'll see that it is going over 1 Gig.
 
 
 ## Cost
 
 For occasional use and code-sharing, the free plan should be fine. At most, you might need the Plus plan ($5 per month). https://rstudio.cloud/plans/free
 
+## Alternatives
+
+* [Here](https://github.com/eeholmes/jupyterhub) is how I set up a Jupyter Hub on AWS. Useful for small workshops.
+* [Here](https://github.com/atsa-es/binder-environment) is how I set up RStudio Server on Binder for running Rmds from any repo. This is for creating links so users can run demo code. Note Binder has the same 1 Gig RAM limitation.

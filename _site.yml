@@ -18,6 +18,12 @@ navbar:
     - text: More Git Skills
       icon: fab fa-github
       href: git-part3.html
+    - text: RStudio Cloud 1
+      icon: fa-cloud
+      href: rstudiocloud-part1.html
+    - text: RStudio Cloud 2
+      icon: fa-graduation-cap
+      href: rstudiocloud-part2.html
   - text: More Resources
     icon: fa-folder
     href: https://rverse-tutorials.github.io/RWorkflow/

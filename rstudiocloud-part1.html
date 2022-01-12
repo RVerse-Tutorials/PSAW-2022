@@ -11,7 +11,7 @@
 
 
 
-<title>GitHub Basics</title>
+<title>Introduction to RStudio Cloud</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -414,7 +414,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">GitHub Basics</h1>
+<h1 class="title toc-ignore">Introduction to RStudio Cloud</h1>
 
 </div>
 
@@ -440,105 +440,131 @@ Robust
 </tr>
 </tbody>
 </table>
+<div id="set-up" class="section level1">
+<h1>Set-up</h1>
+<p>There is no set-up. Just log into RStudio Cloud with a Google email.</p>
+</div>
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>Key GitHub.com skills.</p>
+<p><em>What is RStudio Cloud?</em> RStudio in a website. Works just like RStudio on your computer in most ways. Free for not too intensive stuff. Note RStudio Cloud projects can be launched in RStudio platform or Jupyter! This is not R specific.</p>
+<p><em>Why use RStudio Cloud?</em></p>
 <ul>
-<li>How to use issues.</li>
-<li>How to use releases.</li>
-<li>How to use organizations—for yourself or a team.</li>
+<li><p><strong>Individuals</strong> You don’t have RStudio installed or you want to try a workspace (file, packages, etc) that someone else has prepared in order to try out code.</p></li>
+<li><p><strong>Instructors</strong> Teach without students having to install anything. Customize the workspace the way you want it.</p></li>
 </ul>
-<p>Getting started collaborating using Git and GitHub</p>
+<p>Also easy entry to cloud computing, which is the way the field of code development is moving.</p>
+<p><em>Schedule</em></p>
+<p>3-3:50pm (Eastern): RStudio Cloud for individuals. I’ll give you a tour of the basic features.</p>
+<p>4-5pm (Eastern): RStudio Cloud for instructors. I’l show you how to set-up a space for students and how to share that space in two different ways.</p>
+</div>
+<div id="rstudio-orientation" class="section level1">
+<h1>RStudio Orientation</h1>
+<p>When you open RStudio you will see 4 panels:</p>
+<p><img src="images/RStudio-screenshot.png" /></p>
+</div>
+<div id="rstudio-cloud-basics" class="section level1">
+<h1>RStudio Cloud Basics</h1>
+<p><a href="https://rstudio.cloud" class="uri">https://rstudio.cloud</a></p>
 <ul>
-<li>How to set things up in your shared repository in order to work as a small team.</li>
+<li>Logging in</li>
+<li>Creating a project</li>
+<li>Installing packages</li>
+<li>Running scripts</li>
+<li><a href="https://rstudio.cloud/project/2649365">Running R Markdown</a></li>
+<li><a href="set-up.html#Git_in_RStudio_Cloud">Linking to GitHub</a></li>
+</ul>
+<div id="create-an-rstudio-cloud-project" class="section level2">
+<h2>Create an RStudio Cloud Project</h2>
+<ol style="list-style-type: decimal">
+<li>Click the blue button on upper right</li>
+<li>Choose New RStudio Project</li>
+<li>Install your needed packages</li>
+</ol>
+<div id="add-a-new-script-file" class="section level3">
+<h3>Add a new script file</h3>
+<ol style="list-style-type: decimal">
+<li>Add a new file using ‘File &gt; New File &gt; R Script’</li>
+<li>Or you can click the new icon in top left corner.</li>
+<li>Add some code to that file. Copy and paste in:</li>
+</ol>
+<pre><code>require(graphics)
+## Annette Dobson (1990) &quot;An Introduction to Generalized Linear Models&quot;.
+## Page 9: Plant Weight Data.
+ctl &lt;- c(4.17,5.58,5.18,6.11,4.50,4.61,5.17,4.53,5.33,5.14)
+trt &lt;- c(4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69)
+group &lt;- gl(2, 10, 20, labels = c(&quot;Ctl&quot;,&quot;Trt&quot;))
+weight &lt;- c(ctl, trt)
+lm.D9 &lt;- lm(weight ~ group)
+opar &lt;- par(mfrow = c(2,2), oma = c(0, 0, 1.1, 0))
+plot(lm.D9, las = 1)      # Residuals, Fitted, ...
+par(opar)</code></pre>
+</div>
+<div id="run-the-code" class="section level3">
+<h3>Run the code</h3>
+<ol style="list-style-type: decimal">
+<li>Select all the lines of code and select ‘Run’</li>
+<li>Run all the code by selecting ‘Source’</li>
+</ol>
+</div>
+</div>
+<div id="lets-run-rmarkdown" class="section level2">
+<h2>Let’s run RMarkdown</h2>
+<p>Click this: <a href="https://rstudio.cloud/project/2649365" class="uri">https://rstudio.cloud/project/2649365</a></p>
+<p>It all just works (after installing the knitr and rmarkdown packages)!</p>
+</div>
+<div id="share-your-project" class="section level2">
+<h2>Share your project</h2>
+<ol style="list-style-type: decimal">
+<li>Copy the URL (in browser).</li>
+<li>Email that.</li>
+<li>The person will be able to open a temporary copy or save if they want to keep their changes.</li>
+</ol>
+</div>
+<div id="helpful-tips" class="section level2">
+<h2>Helpful tips</h2>
+<ul>
+<li>Edit &gt; Find in Files…</li>
+<li>Code &gt; Comment</li>
+<li>File &gt; New (templates)</li>
+<li>History tab</li>
+<li>Help tab (index at bottom)</li>
+<li>Help &gt; Markdown quick reference</li>
 </ul>
 </div>
-<div id="key-github-skills" class="section level1">
-<h1>Key GitHub skills</h1>
-<div id="issues" class="section level2">
-<h2>Issues</h2>
-<ul>
-<li>Use the Issues in GitHub to enter any issues (bugs, feature changes, notes).</li>
-</ul>
-<p><img src="images/issues.png" /></p>
-<p><img src="images/issues2.png" /></p>
-<ul>
-<li>Add code to your issue so you can easily recreate the problem.</li>
-</ul>
-<p><img src="images/code-issues.png" /></p>
-<ul>
-<li>You can reference issues in your commits with #<num of the issue></li>
-</ul>
+<div id="create-a-project-from-a-github-repo" class="section level2">
+<h2>Create a project from a GitHub repo</h2>
+<ol style="list-style-type: decimal">
+<li>Click the blue New Project button</li>
+<li>Copy the GitHub URL for a repo in</li>
+</ol>
+<p>For example, <a href="https://github.com/RVerse-Tutorials/Test" class="uri">https://github.com/RVerse-Tutorials/Test</a></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Regardless of whether I can push to this repo, I can pull changes in from GitHub.</li>
+</ol>
 </div>
-<div id="releases" class="section level2">
-<h2>Releases</h2>
-<ul>
-<li>The release or tag feature in GitHub will help you go back in time and document working states</li>
-<li>Use a NEWS file to keep a notebook of all your major changes.</li>
-</ul>
-<p><em>Pro tip</em> checkout the state of the repository at the time of a release. From the terminal:</p>
-<pre><code>git checkout v1.0</code></pre>
-<p>When done:</p>
-<pre><code>git switch -</code></pre>
-<p><strong>Warning <code>git checkout ...</code> will change all your time stamps.</strong></p>
-</div>
-<div id="organizations" class="section level2">
-<h2>Organizations</h2>
-<p>I use this to organize collections of repositories.</p>
-<ul>
-<li>Share access to repos across a team</li>
-<li>Have team discussions</li>
-<li>Have a organization landing page</li>
-</ul>
-</div>
-<div id="github-pages" class="section level2">
-<h2>GitHub Pages</h2>
-<p>Make a simple landing page of your repository.</p>
-</div>
-<div id="complex-examples" class="section level2">
-<h2>Complex Examples</h2>
-<ul>
-<li><p><a href="https://collegescorecard.ed.gov/">College Scorecard</a> This is not a bespoke website. It is a Jekyll site being generated from GitHub. All the data driving the College Scorescard is available on the GitHub repository maintained by the Department of Education.</p></li>
-<li><p><a href="https://nmfs-fish-tools.github.io/">NMFS Fish Tools</a> Here is an example of one of the tools: <a href="https://nmfs-fish-tools.github.io/r4MAS/index.html">r4MAS</a>. Again this is not a bespoke website. In this case, r4MASS is an R package and a tool called pkgdown was used to create this site which GitHub shows as webpage in your browser.</p></li>
-</ul>
-</div>
-<div id="pro-tip-using-github-actions" class="section level2">
-<h2>Pro tip: Using GitHub Actions</h2>
-<ul>
-<li><a href="https://github.com/nmfs-openscapes/12-07-21-GitHub-Actions">Eli’s NMFS R UG presentation on GitHub Actions</a></li>
-</ul>
-<p>You may have heard about them. Let’s see it in action. We make a GitHub Action that will update our Readme file whenever a relevant change happens. We’ll see a bigger example next week with RMarkdown reports.</p>
-<p>To set up our action:</p>
-<ul>
-<li>Create a .github folder in our repo</li>
-<li>Create a workflows folder in the .github folder</li>
-<li>Create a file <code>render-readme.yml</code> with the instructions for what to do to make the Readme.md file.</li>
-</ul>
-<p>Our yml file has a set of instructions to the server that is going to do the work.</p>
-<pre><code>on:
-  push:
-    paths:
-      - README.Rmd
-      - test.csv
+<div id="set-up-to-be-able-to-push-to-github-from-rstudio-cloud" class="section level2">
+<h2>Set up to be able to push to GitHub from RStudio Cloud</h2>
+<ol style="list-style-type: decimal">
+<li><p>Tell RStudio Cloud you want use Git. Open your project then Click Tools &gt; Global Options &gt; Git/SVN (left nav) and check ‘Enable version control for RStudio projects’ <img src="images/RStudio-Cloud-Tools.png" />{25%}</p></li>
+<li><p>Click the Terminal tab in the lower left panel or click the blue cog below the Git tab in the upper right panel. <img src="images/RStudio-Cloud-Terminal.png" />{25%}</p></li>
+<li><p>Type in this with your info</p></li>
+</ol>
+<pre><code>git config --global user.email &quot;&lt;your email&gt;&quot;
 
-name: Render README
-
-jobs:
-  render:
-    name: Render README
-    runs-on: macOS-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: r-lib/actions/setup-r@v1
-      - uses: r-lib/actions/setup-pandoc@v1
-      - name: Install packages
-        run: Rscript -e &#39;install.packages(c(&quot;rmarkdown&quot;, &quot;knitr&quot;))&#39;
-      - name: Render README
-        run: Rscript -e &#39;rmarkdown::render(&quot;README.Rmd&quot;, output_format = &quot;md_document&quot;)&#39;
-      - name: Commit results
-        run: |
-          git commit README.md -m &#39;Re-build README.Rmd&#39; || echo &quot;No changes to commit&quot;
-          git push origin || echo &quot;No changes to commit&quot;</code></pre>
+git config --global user.name &quot;&lt;your name&gt;&quot;</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Make a change to a file and commit the change. * Click the <code>Git</code> tab in the upper right. <em>Click the changes that you want to commit. </em> And click <code>Commit</code>. Add a comment: first line is subject, newline, description (options).</p></li>
+<li><p>Click the Green up arrow to Push to GitHub. Now it asks for you username and password. <strong>You do not enter your password!</strong></p>
+<ul>
+<li>Go to GitHub.com</li>
+<li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Follow instructions for generating a Personal Access Token</a> **Make sure to click the “repo” checkbox for scope*.</li>
+<li>Copy the token and use that for your password.</li>
+</ul></li>
+</ol>
+</div>
+<div id="cost" class="section level2">
+<h2>Cost</h2>
+<p>For occasional use and code-sharing, the free plan should be fine. At most, you might need the Plus plan ($5 per month). <a href="https://rstudio.cloud/plans/free" class="uri">https://rstudio.cloud/plans/free</a></p>
 </div>
 </div>
 

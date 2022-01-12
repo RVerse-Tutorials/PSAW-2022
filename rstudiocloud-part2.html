@@ -11,7 +11,7 @@
 
 
 
-<title>GitHub Basics</title>
+<title>Introduction to RStudio Cloud for Collaborating</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -414,7 +414,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">GitHub Basics</h1>
+<h1 class="title toc-ignore">Introduction to RStudio Cloud for Collaborating</h1>
 
 </div>
 
@@ -442,103 +442,95 @@ Robust
 </table>
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>Key GitHub.com skills.</p>
+<p>In this half of the workshop, I’ll go over some tips for how you can create workspaces for collaborating or for teaching.</p>
 <ul>
-<li>How to use issues.</li>
-<li>How to use releases.</li>
-<li>How to use organizations—for yourself or a team.</li>
+<li>Create a project that students open from a link</li>
+<li>Create a shared workspace where student create projects</li>
+<li>Special software: Stan, TMB, etc</li>
 </ul>
-<p>Getting started collaborating using Git and GitHub</p>
+<div id="create-a-project-for-students-to-use" class="section level2">
+<h2>Create a project for students to use</h2>
+<p>In this case, we create a project that students will open from a link.</p>
+<p><a href="https://github.com/RVerse-Tutorials/TestPackage" class="uri">https://github.com/RVerse-Tutorials/TestPackage</a></p>
+<p>Here is an example. Click this and you’ll open a project that you can work with. <a href="https://rstudio.cloud/project/3430079" class="uri">https://rstudio.cloud/project/3430079</a></p>
+<p>Let’s see how I created that.</p>
+<div id="pros" class="section level3">
+<h3>Pros</h3>
 <ul>
-<li>How to set things up in your shared repository in order to work as a small team.</li>
-</ul>
-</div>
-<div id="key-github-skills" class="section level1">
-<h1>Key GitHub skills</h1>
-<div id="issues" class="section level2">
-<h2>Issues</h2>
-<ul>
-<li>Use the Issues in GitHub to enter any issues (bugs, feature changes, notes).</li>
-</ul>
-<p><img src="images/issues.png" /></p>
-<p><img src="images/issues2.png" /></p>
-<ul>
-<li>Add code to your issue so you can easily recreate the problem.</li>
-</ul>
-<p><img src="images/code-issues.png" /></p>
-<ul>
-<li>You can reference issues in your commits with #<num of the issue></li>
+<li>Simple</li>
+<li>Doesn’t burn up your project hours</li>
+<li>Doesn’t matter how many students you have</li>
+<li>They can work in a temporary copy or save to their account</li>
 </ul>
 </div>
-<div id="releases" class="section level2">
-<h2>Releases</h2>
+<div id="cons" class="section level3">
+<h3>Cons</h3>
 <ul>
-<li>The release or tag feature in GitHub will help you go back in time and document working states</li>
-<li>Use a NEWS file to keep a notebook of all your major changes.</li>
-</ul>
-<p><em>Pro tip</em> checkout the state of the repository at the time of a release. From the terminal:</p>
-<pre><code>git checkout v1.0</code></pre>
-<p>When done:</p>
-<pre><code>git switch -</code></pre>
-<p><strong>Warning <code>git checkout ...</code> will change all your time stamps.</strong></p>
-</div>
-<div id="organizations" class="section level2">
-<h2>Organizations</h2>
-<p>I use this to organize collections of repositories.</p>
-<ul>
-<li>Share access to repos across a team</li>
-<li>Have team discussions</li>
-<li>Have a organization landing page</li>
+<li>You can’t see their work</li>
+<li>Not for collaborating, rather for sharing</li>
+<li>If you have a Premium account, they will be much more limited in RAM</li>
 </ul>
 </div>
-<div id="github-pages" class="section level2">
-<h2>GitHub Pages</h2>
-<p>Make a simple landing page of your repository.</p>
 </div>
-<div id="complex-examples" class="section level2">
-<h2>Complex Examples</h2>
+<div id="create-a-workspace-for-students-to-use" class="section level2">
+<h2>Create a workspace for students to use</h2>
+<p>Demo</p>
+<div id="pros-1" class="section level3">
+<h3>Pros</h3>
 <ul>
-<li><p><a href="https://collegescorecard.ed.gov/">College Scorecard</a> This is not a bespoke website. It is a Jekyll site being generated from GitHub. All the data driving the College Scorescard is available on the GitHub repository maintained by the Department of Education.</p></li>
-<li><p><a href="https://nmfs-fish-tools.github.io/">NMFS Fish Tools</a> Here is an example of one of the tools: <a href="https://nmfs-fish-tools.github.io/r4MAS/index.html">r4MAS</a>. Again this is not a bespoke website. In this case, r4MASS is an R package and a tool called pkgdown was used to create this site which GitHub shows as webpage in your browser.</p></li>
+<li>If you have money or institutional support, you can have lots of RAM and CPU and students can share this more powerful workspace.</li>
+<li>You can see their work and give feedback or problem-solve. But you can’t both be in the space at the same time.</li>
+<li>Good way to collaborate with a small group on the same project (but not at the same time).</li>
 </ul>
 </div>
-<div id="pro-tip-using-github-actions" class="section level2">
-<h2>Pro tip: Using GitHub Actions</h2>
+<div id="cons-1" class="section level3">
+<h3>Cons</h3>
 <ul>
-<li><a href="https://github.com/nmfs-openscapes/12-07-21-GitHub-Actions">Eli’s NMFS R UG presentation on GitHub Actions</a></li>
+<li>On the free account, it works up to 4 members. You need to pay a not insignificant amount of money to get a lot of students.</li>
+<li>Not so sure it would scale up to 100s of students unless you are at a university (which gets steep discounts). Your RAM limit would get hit.</li>
 </ul>
-<p>You may have heard about them. Let’s see it in action. We make a GitHub Action that will update our Readme file whenever a relevant change happens. We’ll see a bigger example next week with RMarkdown reports.</p>
-<p>To set up our action:</p>
+</div>
+</div>
+<div id="installing-special-software" class="section level2">
+<h2>Installing special software</h2>
+<p>One of the great features of using a cloud platform is that you can install software that would be a major hassle for your students to install:</p>
 <ul>
-<li>Create a .github folder in our repo</li>
-<li>Create a workflows folder in the .github folder</li>
-<li>Create a file <code>render-readme.yml</code> with the instructions for what to do to make the Readme.md file.</li>
+<li>You have no idea what operating system they are using or its vintage</li>
+<li>They might not have admin access</li>
+<li>Install might be (substantially) different on different operating systems</li>
+<li>There could be many steps involved</li>
+<li>They might be moving between machines (home, work, computer lab)</li>
+<li>You might want to demo on a machine without having to install anything</li>
 </ul>
-<p>Our yml file has a set of instructions to the server that is going to do the work.</p>
-<pre><code>on:
-  push:
-    paths:
-      - README.Rmd
-      - test.csv
-
-name: Render README
-
-jobs:
-  render:
-    name: Render README
-    runs-on: macOS-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: r-lib/actions/setup-r@v1
-      - uses: r-lib/actions/setup-pandoc@v1
-      - name: Install packages
-        run: Rscript -e &#39;install.packages(c(&quot;rmarkdown&quot;, &quot;knitr&quot;))&#39;
-      - name: Render README
-        run: Rscript -e &#39;rmarkdown::render(&quot;README.Rmd&quot;, output_format = &quot;md_document&quot;)&#39;
-      - name: Commit results
-        run: |
-          git commit README.md -m &#39;Re-build README.Rmd&#39; || echo &quot;No changes to commit&quot;
-          git push origin || echo &quot;No changes to commit&quot;</code></pre>
+<p>Sadly, you are very likely to run into the limitation of 1 gig of RAM in the Free and Free-Plus tiers. The next tier is Premium and that is $99 a month. Better option is using AWS and setting up an RStudio free server.</p>
+<div id="examples" class="section level3">
+<h3>Examples</h3>
+<p><a href="https://rstudio.cloud/learn/guide/system-packages" class="uri">https://rstudio.cloud/learn/guide/system-packages</a></p>
+<ul>
+<li><p>JAGS works because it is already installed: <a href="https://rstudio.cloud/project/2228346" class="uri">https://rstudio.cloud/project/2228346</a></p></li>
+<li><p>sdmTMB throws an error due to the 1 gig RAM on free:</p>
+<ul>
+<li><a href="https://rstudio.cloud/project/3429862" class="uri">https://rstudio.cloud/project/3429862</a></li>
+<li>Could work on Kaggle but not really practical for sharing: <a href="https://www.kaggle.com/eeholmes/sdmtmb" class="uri">https://www.kaggle.com/eeholmes/sdmtmb</a></li>
+</ul></li>
+<li><p>Stan also runs in the 1 Gig RAM problem:</p>
+<ul>
+<li><a href="https://rstudio.cloud/project/2228084" class="uri">https://rstudio.cloud/project/2228084</a></li>
+<li>Using Kaggle is an option since rstan is already installed: <a href="https://www.kaggle.com/eeholmes/rstan" class="uri">https://www.kaggle.com/eeholmes/rstan</a> Watchg the RAM and you’ll see that it is going over 1 Gig.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="cost" class="section level2">
+<h2>Cost</h2>
+<p>For occasional use and code-sharing, the free plan should be fine. At most, you might need the Plus plan ($5 per month). <a href="https://rstudio.cloud/plans/free" class="uri">https://rstudio.cloud/plans/free</a></p>
+</div>
+<div id="alternatives" class="section level2">
+<h2>Alternatives</h2>
+<ul>
+<li><a href="https://github.com/eeholmes/jupyterhub">Here</a> is how I set up a Jupyter Hub on AWS. Useful for small workshops.</li>
+<li><a href="https://github.com/atsa-es/binder-environment">Here</a> is how I set up RStudio Server on Binder for running Rmds from any repo. This is for creating links so users can run demo code. Note Binder has the same 1 Gig RAM limitation.</li>
+</ul>
 </div>
 </div>
 
