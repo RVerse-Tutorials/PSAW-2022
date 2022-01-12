@@ -53,18 +53,26 @@ Not this, i.e. what you would see if you Google "Git".
 
 ![](images/git-online.png){width=400px}
 
-# The 3 Skills
+# The Key Skills
 
 Repository skills (using GitHub Desktop)
 
 * Skill 1: Create a blank repo on GitHub
 * Skill 2: Clone one of your **GitHub** repos onto your computer
 * Skill 0: Open your repository in your editing platform. I am going to use RStudio, but you use whatever you edit in.
-* Skill 3: Commit local changes and push GitHub
+* Skill 3: Commit local changes
+* Skill 4: Push local changes GitHub
 
 * Skill 1b: How to clone someone else's GitHub repository
 
 ![](images/git-repo-structure.png){width=200px}
+# Let's see it done!
+
+## GitHub Desktop
+
+## RStudio Cloud
+
+See [Set-up](set-up.html)
 
 ## Skill 1: Create a blank repo on GitHub
 
@@ -111,9 +119,9 @@ Let say you want to make a copy of one of your GitHub repositories and use it as
 2. Use skill #1 to pull that repository onto your computer
 3. Get rid of any files you don't want in the new repo and use skill #3 to push those to GitHub.
 
-# Other useful but not critical skills
+# Other skills
 
-## Pull changes on GitHub
+## Pull changes made on GitHub
 
 1. Make some changes directly on GitHub
 2. Click Pull in GitHub Desktop
