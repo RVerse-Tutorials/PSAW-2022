@@ -102,3 +102,15 @@ For occasional use and code-sharing, the free plan should be fine. At most, you 
 
 * [Here](https://github.com/eeholmes/jupyterhub) is how I set up a Jupyter Hub on AWS. Useful for small workshops.
 * [Here](https://github.com/atsa-es/binder-environment) is how I set up RStudio Server on Binder for running Rmds from any repo. This is for creating links so users can run demo code. Note Binder has the same 1 Gig RAM limitation.
+
+## Things to be aware of
+
+* I have found it to be a little prone to R stopping. Still 100% useable by students though.
+* [bug if you are using RMarkdown docs](https://joshuamrosenberg.com/post/2021/09/14/use-rstudio-cloud-for-teaching-with-caution/) "if you re-run a code chunk in an RMarkdown document - think something like clicking the green arrow to the right of the code chunk twice - there stands a chance that the R session will disconnect. " "this is a bug with the RStudio IDE, but there is a fix. Namely, one can uncheck/turn off the “Save documents when editor loses input focus” setting, which can be done through the command palette (available on the Tools menu; see Tools -> Show Command Palette). This has to be done on a per-project basis."
+
+## Resources
+
+* https://datasciencebox.org/access-r.html
+* [Talk on RStudio Cloud for Teaching](https://speakerdeck.com/minecr/teaching-and-learning-r-in-the-cloud-with-rstudio-cloud)
+* [Talk similar to mine but more detail](https://rpubs.com/bkostadi/rstudio_cloud_talk)
+

@@ -1,0 +1,28 @@
+Follow-up on the Intro to Git/GitHub Session
+
+As a reminder, here are my notes from the PSAW session:
+https://rverse-tutorials.github.io/PSAW-2022/
+I will add a link to the recording when I get it.
+
+As I mentioned, there is an active NMFS R User Group with monthly meetings, a Google User Space for discussions, and a GitHub org for discussion also. If you want to join that, please add your info to our sign-up page:
+https://docs.google.com/spreadsheets/d/1WwiGAf7Lmrx3sdrif3R-IhIJiXUIFBHydloixY6fWuo/edit?usp=sharing
+
+You can also add the NMFS R UG calendar to your (NOAA) Google calendar to see all the events:
+https://calendar.google.com/calendar/u/0?cid=bm9hYS5nb3ZfNjByZm43bWw5cnBjaGw2M3ZzNGFmOW4wMThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
+
+Suggestions for Getting Started
+
+The key point of the session is about changing your workflow to include 1) a 'history' of your changes and what issues you were working on and 2) organizing your work with reuse by your future self or others in mind. 
+
+Git/GitHub is a tool to do this and is widely used in NMFS and by scientists in general. Using it allows you to take advantage of work that others share and will naturally help you be more disciplined in your science workflows.
+
+1. Start with a private GitHub repository and get used to the new workflow of making commits as you work and track your work. Use GitHub issues to start tracking your project to-do list and 'conversations' with yourself about those items.
+
+2. Join some of the NMFS R UG sessions and learn how NMFS teams use GitHub (link to join above). 
+
+3. Begin making connections so that you can learn from teams across NMFS doing similar work to you and are using GitHub to share or release work. Links to GitHub organizations in NOAA Fisheries:
+https://github.com/nmfs-openscapes/.github/wiki/02-GitHub-in-Government#github-in-noaa--nmfs
+
+Eli Holmes
+Northwest Fisheries Science Center, NOAA Fisheries
+https://github.com/eeholmes

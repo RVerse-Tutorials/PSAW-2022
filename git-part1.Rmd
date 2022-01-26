@@ -37,7 +37,7 @@ kable(dt, col.names=NULL) %>%
 
 # Overview
 
-Today I will cover the basic Git/GitHub skills (and info) that are all most people need for 95% of their work. I am using [GitHub Desktop](https://desktop.github.com/). If you want to use Git from RStudio, [go to set-up](set-up.html) and scroll to the section on RStudio and Git.
+Today I will cover the basic Git/GitHub skills (and info) that are all most people need for 95% of their work. I am using [GitHub Desktop](https://desktop.github.com/). ^[**Why GitHub Desktop?** I teach using it because it is made by GitHub and all you have to do is download and login with your GitHub account. No hassles for students. Also it is not specific to RStudio or JupyterLab which my students might not use. I use it in my personal work because my Git and GitHub work is simply much faster using it. I have many GitHub repos so speed and being able to track multiple repos is important to me. Also I use GitHub issues to plan and track my work. Being able to type '#' in my commit message and see what issues are open on GitHub is critical for my workflow. Other people use RStudio's Git GUI but it doesn't have the functions I need. I also like GitKrakken. Search around and find something that works for your purposes. In JupyterLab I use the jupyter-git extension.] If you want to use Git from RStudio, [go to set-up](set-up.html) and scroll to the section on RStudio and Git. 
 
 Simple Workflow:
 
@@ -93,12 +93,15 @@ See [Set-up](set-up.html)
 just saved the repo.
 3. Click 'Create project'
 
-## Skill 3: Commit and push changes
+## Skill 3: Commit your changes
 
 1. Make some changes to a file or add a file.
 2. Open GitHub Desktop, click the little checkboxes next to the changes.
 3. Add a commit comment, commit.
-4. Click Push at top to push the changes to GitHub
+
+## Skill 4: Push changes to GitHub
+
+1. In GitHub Desktop, click Push at top to push the changes to GitHub
 
 ## Skill 1b: Copy a repo on GitHub
 
