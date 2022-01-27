@@ -10,6 +10,8 @@ The focus of these training session is practical skills and tools. If you want t
 
 ## Introduction to Git/GitHub Jan 12
 
+[Video of the workshop](https://youtu.be/nNl8KqA57A0)
+
 Note this is not specific to R in any way nor to computer coding per se. I will use RStudio to edit my files in the session, but you can use whatever you want to edit files.
 
 * [Part 1](git-part1.html). The key Git skills. These basic skills are all you need for 95% of your work with Git repositories.
@@ -22,6 +24,8 @@ Note this is not specific to R in any way nor to computer coding per se. I will 
 
 
 ## Introduction to RStudio Cloud Jan 12
+
+[Video of the workshop](https://youtu.be/2xLf3uK-J0U)
 
 Note RStudio Cloud is currently specific to R and RStudio in the free mode. They are rolling out a Jupyter option (Python), but that is in beta and you have to pay (a lot).
 
