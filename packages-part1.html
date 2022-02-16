@@ -441,15 +441,20 @@ Robust
 </tbody>
 </table>
 <p>In Part 1, I will discuss how to make an R package, with specific emphasis on data R packages, and show you how to document functions and data with Roxygen2.</p>
+<p>By the end of this workshop, you will be able to build your own mini R package using RStudio. I’ll show you how to host it on GitHub with a nice little landing page.</p>
+<p>If/when you want to go into R packaging in more depth, see Hadley Wickham’s book <a href="http://r-pkgs.had.co.nz/">R Packages</a>.</p>
+<div id="why-a-package" class="section level2">
+<h2>Why a package?</h2>
+<div id="shorter-answer" class="section level3">
+<h3>Shorter answer</h3>
 <ul>
 <li>The package framework really helps you write robust code and well documented code.</li>
 <li>It makes it easy to bundle data with code.</li>
 <li>It make it easy to version and document your data.</li>
 </ul>
-<p>By the end of this session, you will be able to build your own mini R package using RStudio. I’ll show you how to host it on GitHub with a nice little landing page.</p>
-<p>If/when you want to go into R packaging in more depth, see Hadley Wickham’s book <a href="http://r-pkgs.had.co.nz/">R Packages</a>.</p>
-<div id="why-a-package" class="section level2">
-<h2>Why a package?</h2>
+</div>
+<div id="longer-answer" class="section level3">
+<h3>Longer answer</h3>
 <p>An R package is an easy and the standard way to organize your R code, document your code, and share your code with other people. Why use an R package rather than just make a bunch of scripts with your data in a folder?</p>
 <ul>
 <li><strong>Reproducibility and documentation</strong> In the long-run, you will save yourself much work if you organize and document your code. Rather than writing a series of scripts that you copy and alter for each project, you think about how to make your scripts into functions.</li>
@@ -457,6 +462,7 @@ Robust
 <li><strong>Robust data sharing!</strong> Putting your data in a dedicated data package allows you to version your data (so everyone knows they are using the most up to date data), document your data, track data changes, provide data releases (with archives), provide easy visualizations of the data, and any other packages can load that data package and have access to the data.</li>
 <li><strong>You want to make an application</strong> If you want to make a shiny application, having your code in a package will help.</li>
 </ul>
+</div>
 </div>
 <div id="set-up-for-psaw-iii" class="section level2">
 <h2>Set-up for PSAW III</h2>
@@ -502,15 +508,15 @@ Click to see how to do this in RStudio your computer
 <p>2 files and a directory.</p>
 <ul>
 <li><p><strong>DESCRIPTION</strong> This file has the meta-data about your package. Name and what packages it depends on. Most of it is self-explanatory. The <code>Depends:</code> and <code>Imports:</code> lines specify any functions from other packages that you use in your functions.</p></li>
-<li><p><strong>NAMESPACE</strong> This file indicates what needs to be exposed to users for your R package. For our course, you won’t need to edit as <strong>Roxygen2</strong> takes care of it.</p></li>
+<li><p><strong>NAMESPACE</strong> This file indicates what needs to be exposed to users for your R package. For our course, you won’t need to edit as {roxygen2} takes care of it.</p></li>
 <li><p><strong>R directory</strong> This is where all your R code goes for your package.</p></li>
 </ul>
 </div>
 <div id="basic-add-ons" class="section level3">
 <h3>Basic add-ons</h3>
 <ul>
-<li><p><strong>man</strong> A directory for documentation. You won’t need to write this. It will be added automatically by <strong>Roxygen2</strong>.</p></li>
-<li><p><strong>data</strong> A directory for data files saved in RData format (with the ending <code>.RData</code>). Nothing else!</p></li>
+<li><p><strong>man</strong> A directory for documentation. You won’t need to write this. It will be added automatically by {roxygen2}.</p></li>
+<li><p><strong>data</strong> A directory for data files saved in RData format with the ending <code>.rda</code> or <code>.RData</code>. Nothing else!</p></li>
 </ul>
 </div>
 <div id="other-add-ons" class="section level3">
@@ -631,6 +637,30 @@ return(&lt;what you want to return to user&gt;)
 .github
 .git</code></pre>
 </div>
+</div>
+<div id="lets-add-another-function-to-testpackage" class="section level2">
+<h2>Let’s add another function to TestPackage</h2>
+<ol style="list-style-type: decimal">
+<li><p>Create a new R script file. File &gt; New File &gt; R Script.</p></li>
+<li><p>Paste this code into the script and save as <code>hello.R</code> in the R directory.</p></li>
+</ol>
+<pre><code>#&#39; dplyr example
+#&#39; 
+#&#39; This adds a new function that needs {dplyr}
+#&#39; @param col which column to average
+#&#39; @export
+irisaverages &lt;- function(col = c(&quot;Sepal.Length&quot;, &quot;Sepal.Width&quot;, &quot;Petal.Length&quot;, &quot;Petal.Width&quot;)){
+col &lt;- match.arg(col)
+iris$col &lt;- iris[[col]]
+iris %&gt;% dplyr::group_by(Species) %&gt;% 
+   dplyr::summarize(mean = mean(col))
+}</code></pre>
+<p>We now use {dplyr} and <code>%&gt;%</code> (pipe).</p>
+<p>We can either add {dplyr} to <code>Depends</code> in our DESCRIPTION file but that would load the whole {dplyr} library and maybe we don’t want to do that.</p>
+<p>We can add {dplyr} to <code>Imports</code> but how to get <code>%&gt;%</code>? Add a file <code>import_packages.R</code> to the R folder (the name of the file is unimportant).</p>
+<pre><code>#&#39; @importFrom magrittr %&gt;%
+NULL</code></pre>
+<p><em>How would I ever remember this??</em> Sadly if your use piping, you’ll gets lots of practice with this.</p>
 </div>
 <div id="data-package-in-r" class="section level2">
 <h2>Data package in R</h2>

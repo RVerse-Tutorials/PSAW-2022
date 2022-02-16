@@ -23,16 +23,21 @@ kable(dt, col.names=NULL) %>%
 
 In Part 1, I will discuss how to make an R package, with specific emphasis on data R packages, and show you how to document functions and data with Roxygen2.
 
-* The package framework really helps you write robust code and well documented code. 
-* It makes it easy to bundle data with code.
-* It make it easy to version and document your data.
-
-By the end of this session, you will be able to build your own mini R package using RStudio. I'll show you how to host it on GitHub with a nice little landing page.
+By the end of this workshop, you will be able to build your own mini R package using RStudio. I'll show you how to host it on GitHub with a nice little landing page.
 
 
 If/when you want to go into R packaging in more depth, see Hadley Wickham's book [R Packages](http://r-pkgs.had.co.nz/).
 
+
 ## Why a package?
+
+### Shorter answer
+
+* The package framework really helps you write robust code and well documented code. 
+* It makes it easy to bundle data with code.
+* It make it easy to version and document your data.
+
+### Longer answer
 
 An R package is an easy and the standard way to organize your R code, document your code, and share your code with other people.  Why use an R package rather than just make a bunch of scripts with your data in a folder?
 
@@ -92,15 +97,15 @@ This makes a basic package using RStudio on your computer but it won't be exactl
 
 * **DESCRIPTION** This file has the meta-data about your package.  Name and what packages it depends on.  Most of it is self-explanatory.  The `Depends:` and `Imports:` lines specify any functions from other packages that you use in your functions.
 
-* **NAMESPACE** This file indicates what needs to be exposed to users for your R package. For our course, you won't need to edit as **Roxygen2** takes care of it.
+* **NAMESPACE** This file indicates what needs to be exposed to users for your R package. For our course, you won't need to edit as {roxygen2} takes care of it.
 
 * **R directory** This is where all your R code goes for your package.
 
 ### Basic add-ons
 
-* **man** A directory for documentation.  You won't need to write this.  It will be added automatically by **Roxygen2**.
+* **man** A directory for documentation.  You won't need to write this.  It will be added automatically by {roxygen2}.
 
-* **data** A directory for data files saved in RData format (with the ending `.RData`). Nothing else!
+* **data** A directory for data files saved in RData format with the ending `.rda` or `.RData`. Nothing else!
 
 
 ### Other add-ons
@@ -254,6 +259,38 @@ Though not required, in practice you will need to tell R what not to include in 
 .github
 .git
 ```
+
+## Let's add another function to TestPackage
+
+1. Create a new R script file. File > New File > R Script. 
+
+2. Paste this code into the script and save as `hello.R` in the R directory.
+
+```
+#' dplyr example
+#' 
+#' This adds a new function that needs {dplyr}
+#' @param col which column to average
+#' @export
+irisaverages <- function(col = c("Sepal.Length", "Sepal.Width", "Petal.Length", "Petal.Width")){
+col <- match.arg(col)
+iris$col <- iris[[col]]
+iris %>% dplyr::group_by(Species) %>% 
+   dplyr::summarize(mean = mean(col))
+}
+```
+
+We now use {dplyr} and `%>%` (pipe).
+
+We can either add {dplyr} to `Depends` in our DESCRIPTION file but that would load the whole {dplyr} library and maybe we don't want to do that.
+
+We can add {dplyr} to `Imports` but how to get `%>%`? Add a file `import_packages.R` to the R folder (the name of the file is unimportant).
+```
+#' @importFrom magrittr %>%
+NULL
+```
+*How would I ever remember this??* Sadly if your use piping, you'll gets lots of practice with this.
+
 
 ## Data package in R
 
