@@ -1,7 +1,7 @@
 name: PSAW-2022
 output_dir: '.'
 navbar:
-  title: RWorkflow
+  title: PSAW-2022
   left:
   - text: Set-up
     icon: fa-clone
