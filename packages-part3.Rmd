@@ -1,0 +1,77 @@
+---
+title: "Week 6: Organizing your R code and data into a package"
+output:
+  html_document:
+    toc: true
+    include:
+      after_body: footer.html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+set.seed(1234)
+```
+
+```{r chunk1, echo=FALSE, message=FALSE, warning=FALSE}
+library(kableExtra)
+dt <- data.frame("Compartmentalized", "Documented", "Extendible", "Reproducible", "Robust")
+kable(dt, col.names=NULL) %>%
+  kable_styling(full_width = TRUE) %>%
+  row_spec(1, bold = FALSE, color = "white", background = "blue") %>%
+  column_spec(column = 1:5, width = "20%")
+```
+
+
+Part 3, Sharing your package.
+
+
+## Sharing your package on GitHub
+
+Once you have your package on GitHub, it is easy for people to install using
+
+```
+library(devtools)
+install_github("youraccount/MyNewPackage")
+```
+
+For example to install the package on 'RVerse-Tutorials', you would use
+```
+install_github("RVerse-Tutorials/TestPackage")
+```
+Note, {remotes} is another option that you'll see instead of {devtools}.
+
+### Making sure people use the latest version
+
+You can create releases on GitHub and give people these installation instructions:
+
+```
+devtools::install_github("youraccount/MyNewPackage@*release")
+```
+
+## Examples of real data packages
+
+* [SardineForecast](https://github.com/eeholmes/SardineForecast) A complex package with lots of different types of data.
+* [VRData](https://nwfsc-math-bio.github.io/VRData/) This is a data repo that I am developing for NWFSC application.
+
+## How do I get my package on GitHub?
+
+[PSAW II Workshop Introduction to GitHub](https://rverse-tutorials.github.io/PSAW-2022/)
+
+## Data package collaboration
+
+In a team application, you'll be dividing up the work.
+
+* **The package development**. R coder and knows how to design a package.
+* **Data**. Team members who add files to `data-raw` in whatever format your team uses.
+* **Documentation**. Multiple team members might be involved in editing the files in the `R` directory. Note, in **VRData** the documentation headers are in `data-raw` and I have code that processes that into the files in `R`.
+* **Package maintainer**. Not necessarily the package developer. This person makes sure releases are posted to GitHub.
+
+
+
+
+    
+    
+
+
+
+

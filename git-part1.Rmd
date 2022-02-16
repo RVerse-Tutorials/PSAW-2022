@@ -55,6 +55,8 @@ Not this, i.e. what you would see if you Google "Git".
 
 # The Key Skills
 
+[Jump to this part of the video](https://youtu.be/nNl8KqA57A0?t=1152)
+
 Repository skills (using GitHub Desktop)
 
 * Skill 1: Create a blank repo on GitHub
@@ -76,17 +78,23 @@ See [Set-up](set-up.html)
 
 ## Skill 1: Create a blank repo on GitHub
 
+[Jump to this part of the video](https://youtu.be/nNl8KqA57A0?t=1336)
+
 1. Click the + in the upper left from YOUR GitHub page.
 2. Click new and add the Readme file and .gitignore
 
 ## Skill 2: Clone your repo to your computer
+
+[Jump to this part of the video](https://youtu.be/nNl8KqA57A0?t=1627)
 
 1. Copy the URL of your repo. `https://www.github.com/yourname/yourrepo`
 2. Open GitHub Desktop on your computer. Click File > Clone Repository
 3. Click URL in the box that pops up and paste in the URL above
 4. Double check that you are saving the repo in the right place
 
-## Skill 0: Make project in RStudio
+## Skill 0: Make a project in RStudio
+
+**This is just for RStudio users. Others can ignore this step.**
 
 1. Open RStudio and click the project tab in the top right and select, `New Project`. 
 2. Select `Existing Directory` and navigate to the directory where you 
@@ -95,7 +103,9 @@ just saved the repo.
 
 ## Skill 3: Commit your changes
 
-1. Make some changes to a file or add a file.
+[Jump to this part of the video](https://youtu.be/nNl8KqA57A0?t=2497)
+
+1. Make some changes to a file or add a file. **Make changes however you want. For example you can just open the Readme file in a text editor, or in RStudio, or in Jupyter Notebook.**
 2. Open GitHub Desktop, click the little checkboxes next to the changes.
 3. Add a commit comment, commit.
 
@@ -104,6 +114,8 @@ just saved the repo.
 1. In GitHub Desktop, click Push at top to push the changes to GitHub
 
 ## Skill 1b: Copy a repo on GitHub
+
+[Jump to this part of the video](https://youtu.be/nNl8KqA57A0?t=4190)
 
 You can clone your own or other people's repos.
 

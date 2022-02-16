@@ -4,9 +4,17 @@ title: "PSAW 2022 Training Sessions"
 
 <img style="float: right;" src="images/tools-logo-transparent.png" width=30%>
 
-The focus of these training session is practical skills and tools. If you want to follow along by doing, go to [Set-up](set-up.html) to get set-up.
+The focus of these training session is practical skills and tools. To follow along with the GitHub workshop, go to [Set-up](set-up.html). No set-up is needed for the R packages workshop as we will use RStudio Cloud.
 
 <hr>
+
+## Intro to R Packages, and especially data R packages Feb 16
+
+* [Part 1](packages-part1.html). Intro to R packages for data and code. You'll learn the basic parts of an R package, how to add functions and data, how to document code and data, and how to make vignettes.
+
+* [Part 2](packages-part2.html). Bells and whistles. Introduction to **pkgdown** for package websites, NMFS branded packages, creating vignettes, and checking your package. 
+
+* [Part 3](packages-part3.html). Sharing your package and collaborating.
 
 ## Introduction to Git/GitHub Jan 12
 
@@ -33,17 +41,6 @@ Note RStudio Cloud is currently specific to R and RStudio in the free mode. They
 
 * [Part 2](rstudiocloud-part2.html). RStudio Cloud for instructors or those wanting to share code or collaborate on code.
 
-
-<!--
-### Building a Data R Packages
-
-* [Part 1](week6.html). Intro to R packages for data and code. How to build an R package in RStudio. In the second half of the lecture, I will show you how to make an R data package and what that can do to allow data documentation, data revision tracking, data versioning and data sharing.
-
-* [Part 2](week7.html). Intro to **roxygen2** for documentation and **pkgdown** for package websites. Even if you don't do the coding on your team, you should be aware of how documentation works so you can contribute and the tools for automating tasks like a project website so your team doesn't fall into inefficient workflows.
-
-* [Part 3](week8.html). Advanced topics for developers. How to set up a NAMESPACE, passing `R CMD check`, debugging tools, coding GitHub Actions workflows, C++ code in your package. I am going to pass on tips to help you understand how these things work so you don't waste hours figuring it out or fall back on hacky solutions.
-
--->
 
 
 <hr>

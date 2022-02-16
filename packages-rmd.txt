@@ -1,0 +1,15 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r}
+library(ToyDataPackage)
+```
+
+```{r, echo=FALSE}
+library(ToyDataPackage)
+data(cars2)
+knitr::kable(cars2, 
+             caption=paste("This is version", packageVersion("ToyDataPackage')))
+```

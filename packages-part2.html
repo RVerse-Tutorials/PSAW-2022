@@ -11,7 +11,7 @@
 
 
 
-<title>PSAW 2022 Training Sessions</title>
+<title>PSAW II: Packages Part 2</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,9 +29,14 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -222,6 +227,75 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
 
 </head>
 
@@ -229,6 +303,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -330,49 +414,103 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">PSAW 2022 Training Sessions</h1>
+<h1 class="title toc-ignore">PSAW II: Packages Part 2</h1>
 
 </div>
 
 
-<p><img style="float: right;" src="images/tools-logo-transparent.png" width=30%></p>
-<p>The focus of these training session is practical skills and tools. To follow along with the GitHub workshop, go to <a href="set-up.html">Set-up</a>. No set-up is needed for the R packages workshop as we will use RStudio Cloud.</p>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:left;color: white !important;background-color: blue !important;width: 20%; ">
+Compartmentalized
+</td>
+<td style="text-align:left;color: white !important;background-color: blue !important;width: 20%; ">
+Documented
+</td>
+<td style="text-align:left;color: white !important;background-color: blue !important;width: 20%; ">
+Extendible
+</td>
+<td style="text-align:left;color: white !important;background-color: blue !important;width: 20%; ">
+Reproducible
+</td>
+<td style="text-align:left;color: white !important;background-color: blue !important;width: 20%; ">
+Robust
+</td>
+</tr>
+</tbody>
+</table>
+<p>Part 2, Bells and whistles. Checking your package, vignettes, and {pkgdown}.</p>
+<div id="checking-your-package" class="section level2">
+<h2>Checking your package</h2>
+<p>Just use the RStudio Check in the Build tab. You’ll have many issues (most likely). Plug away at each one until you pass with no errors or warnings. Don’t ignore Notes either. They are sometimes more serious than the errors and warnings.</p>
+<p>If R asks you to update packages, and then proceeds to fail at installation because of a warning that a package was built under a later R version than you have on your computer, use</p>
+<pre><code>Sys.setenv(R_REMOTES_NO_ERRORS_FROM_WARNINGS=TRUE)</code></pre>
+</div>
+<div id="writing-a-vignette" class="section level2">
+<h2>Writing a vignette</h2>
+<p>Doing this in RStudio is easy. See <a href="https://bookdown.org/yihui/rmarkdown-cookbook/package-vignette.html">rmarkdown vignette chapter</a> and <a href="http://r-pkgs.had.co.nz/vignettes.html">Hadley’s vignette chapter</a> for more info.</p>
+<div id="making-the-vignette" class="section level3">
+<h3>Making the vignette</h3>
+<p>Manually</p>
+<ul>
+<li>Make a vignettes folder at the base level (same level as the R folder)</li>
+<li>Create a new vignette file from a template. RStudio &gt; File &gt; New &gt; R Markdown &gt; From Template &gt; Vignette</li>
+<li>Save in vignettes folder</li>
+<li>Change the title in the 2 places in the yaml at the top. ‘yaml’ is between the <code>---</code> fences.</li>
+<li>Add the following 2 lines to your DESCRIPTION file:</li>
+</ul>
+<pre><code>Suggests: knitr, rmarkdown
+VignetteBuilder: knitr</code></pre>
+<p>Or use a helper function:</p>
+<pre><code>usethis::use_vignette(&quot;plots&quot;, title=&quot;Plotting&quot;)</code></pre>
+</div>
+<div id="testing-your-vignette" class="section level3">
+<h3>Testing your vignette</h3>
+<p>Open your vignette file and click the Knit button.</p>
+</div>
+<div id="sharing-your-vignette" class="section level3">
+<h3>Sharing your vignette</h3>
+<p>Read more <a href="https://rverse-tutorials.github.io/RWorkflow-NWFSC-2020/week6-more-packages.html#Writing_a_vignette">here</a> about getting vignettes to show up with <code>browseVignettes()</code>.</p>
+<p>If you use {pkgdown} (recommended) to share your package documentation, the vignettes will automatically be displayed.</p>
+</div>
+</div>
+<div id="making-a-pkgdown-webpage" class="section level2">
+<h2>Making a {pkgdown} webpage</h2>
+<p><a href="https://pkgdown.r-lib.org/articles/pkgdown.html">pkgdown</a> makes it easy to make nice webpages for your packages.</p>
+<p>Once you have a working R package, run this</p>
+<ul>
+<li>In RStudio Cloud to view only, <code>pkgdown::build_site(override = list(destination = "~/docs"))</code></li>
+<li>In RStudio Cloud to create the <code>docs</code> folder for the package, <code>pkgdown::build_site()</code></li>
+<li>On your computer in RStudio, <code>pkgdown::build_site()</code></li>
+</ul>
+<p>You’ll need to install {pkgdown} if you are on your own computer.</p>
+</div>
+<div id="nmfs-branded-package" class="section level2">
+<h2>NMFS branded package</h2>
+<p>Elements of a NMFS branded package: open this: <a href="https://rstudio.cloud/project/3592880" class="uri">https://rstudio.cloud/project/3592880</a></p>
+<ul>
+<li>LICENSE</li>
+<li>Disclaimer</li>
+<li>Logos</li>
+<li>Footer</li>
+<li>NMFS pallette</li>
+</ul>
+<p>The NMFS Fisheries Integrated Toolbox has a NMFS branded template that you can use: <a href="https://github.com/nmfs-fish-tools/pkgdownTemplate" class="uri">https://github.com/nmfs-fish-tools/pkgdownTemplate</a></p>
+<p>Let’s see an example,</p>
+<p>Then type</p>
+<pre><code>`pkgdown::build_site(override = list(destination = &quot;~/docs&quot;))`</code></pre>
+</div>
+
 <hr>
-<div id="intro-to-r-packages-and-especially-data-r-packages-feb-16" class="section level2">
-<h2>Intro to R Packages, and especially data R packages Feb 16</h2>
-<ul>
-<li><p><a href="packages-part1.html">Part 1</a>. Intro to R packages for data and code. You’ll learn the basic parts of an R package, how to add functions and data, how to document code and data, and how to make vignettes.</p></li>
-<li><p><a href="packages-part2.html">Part 2</a>. Bells and whistles. Introduction to <strong>pkgdown</strong> for package websites, NMFS branded packages, creating vignettes, and checking your package.</p></li>
-<li><p><a href="packages-part3.html">Part 3</a>. Sharing your package and collaborating.</p></li>
-</ul>
-</div>
-<div id="introduction-to-gitgithub-jan-12" class="section level2">
-<h2>Introduction to Git/GitHub Jan 12</h2>
-<p><a href="https://youtu.be/nNl8KqA57A0">Video of the workshop</a></p>
-<p>Note this is not specific to R in any way nor to computer coding per se. I will use RStudio to edit my files in the session, but you can use whatever you want to edit files.</p>
-<ul>
-<li><p><a href="git-part1.html">Part 1</a>. The key Git skills. These basic skills are all you need for 95% of your work with Git repositories.</p></li>
-<li><p><a href="git-part2.html">Part 2</a>. GitHub skills. We’ll learn how to use issues and releases on GitHub to be more efficient either working alone or in a team. I’ll show you how I use organizations to organize my repositories and some of the nice ‘landing page’ features of GitHub.</p></li>
-<li><p><a href="git-part3.html">Part 3</a>. More Git skills. Dealing with merge conflicts.</p></li>
-<li><p><a href="Git-RStudio.html">Using Git from RStudio</a> Introduction to workflow using RStudio and Git/GitHub.</p></li>
-</ul>
-</div>
-<div id="introduction-to-rstudio-cloud-jan-12" class="section level2">
-<h2>Introduction to RStudio Cloud Jan 12</h2>
-<p><a href="https://youtu.be/2xLf3uK-J0U">Video of the workshop</a></p>
-<p>Note RStudio Cloud is currently specific to R and RStudio in the free mode. They are rolling out a Jupyter option (Python), but that is in beta and you have to pay (a lot).</p>
-<ul>
-<li><p><a href="rstudiocloud-part1.html">Part 1</a>. Introduction to RStudio Cloud for individuals.</p></li>
-<li><p><a href="rstudiocloud-part2.html">Part 2</a>. RStudio Cloud for instructors or those wanting to share code or collaborate on code.</p></li>
-</ul>
-<hr>
+
 <div style="text-align: center">
-<p><i class="fas fa-cubes"></i> NWFSC Math Bio Program <i class="fas fa-cubes"></i></p>
+<i class="fas fa-cubes"></i> NWFSC Math Bio Program <i class="fas fa-cubes"></i>
+</div>
+
+
 </div>
 </div>
-
-
-
 
 </div>
 
@@ -405,6 +543,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

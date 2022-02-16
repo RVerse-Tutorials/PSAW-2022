@@ -1,0 +1,116 @@
+---
+title: "PSAW II: Packages Part 2"
+output:
+  html_document:
+    toc: true
+    include:
+      after_body: footer.html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+set.seed(1234)
+```
+
+```{r chunk1, echo=FALSE, message=FALSE, warning=FALSE}
+library(kableExtra)
+dt <- data.frame("Compartmentalized", "Documented", "Extendible", "Reproducible", "Robust")
+kable(dt, col.names=NULL) %>%
+  kable_styling(full_width = TRUE) %>%
+  row_spec(1, bold = FALSE, color = "white", background = "blue") %>%
+  column_spec(column = 1:5, width = "20%")
+```
+
+Part 2, Bells and whistles. Checking your package, vignettes, and {pkgdown}. 
+
+## Checking your package
+
+Just use the RStudio Check in the Build tab. You'll have many issues (most likely). Plug away at each one until you pass with no errors or warnings. Don't ignore Notes either. They are sometimes more serious than the errors and warnings.
+
+If R asks you to update packages, and then proceeds to fail at installation because of a warning that a package was built under a later R version than you have on your computer, use
+```
+Sys.setenv(R_REMOTES_NO_ERRORS_FROM_WARNINGS=TRUE)
+```
+
+
+## Writing a vignette
+
+Doing this in RStudio is easy. See [rmarkdown vignette chapter](https://bookdown.org/yihui/rmarkdown-cookbook/package-vignette.html) and [Hadley's vignette chapter](http://r-pkgs.had.co.nz/vignettes.html) for more info.
+
+### Making the vignette
+
+Manually
+
+* Make a vignettes folder at the base level (same level as the R folder)
+* Create a new vignette file from a template. RStudio > File > New > R Markdown > From Template > Vignette
+* Save in vignettes folder
+* Change the title in the 2 places in the yaml at the top. 'yaml' is between the `---` fences.
+* Add the following 2 lines to your DESCRIPTION file:
+
+```
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+```
+
+Or use a helper function:
+
+```
+usethis::use_vignette("plots", title="Plotting")
+```
+
+### Testing your vignette
+
+Open your vignette file and click the Knit button.
+
+### Sharing your vignette
+
+Read more [here](https://rverse-tutorials.github.io/RWorkflow-NWFSC-2020/week6-more-packages.html#Writing_a_vignette) about getting vignettes to show up with `browseVignettes()`.
+
+If you use {pkgdown} (recommended) to share your package documentation, the vignettes will automatically be displayed.
+
+
+## Making a {pkgdown} webpage
+
+[pkgdown](https://pkgdown.r-lib.org/articles/pkgdown.html) makes it easy to make nice webpages for your packages.
+
+Once you have a working R package, run this
+
+* In RStudio Cloud to view only, `pkgdown::build_site(override = list(destination = "~/docs"))`
+* In RStudio Cloud to create the `docs` folder for the package, `pkgdown::build_site()`
+* On your computer in RStudio, `pkgdown::build_site()`
+
+You'll need to install {pkgdown} if you are on your own computer.
+
+## NMFS branded package
+
+Elements of a NMFS branded package: open this: https://rstudio.cloud/project/3592880
+
+* LICENSE
+* Disclaimer
+* Logos
+* Footer
+* NMFS pallette
+
+The NMFS Fisheries Integrated Toolbox has a NMFS branded template that you can use:
+https://github.com/nmfs-fish-tools/pkgdownTemplate
+
+Let's see an example, 
+
+Then type
+```
+`pkgdown::build_site(override = list(destination = "~/docs"))`
+```
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+

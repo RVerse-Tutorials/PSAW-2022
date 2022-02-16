@@ -11,7 +11,7 @@
 
 
 
-<title>Week 6</title>
+<title>Week 6: Organizing your R code and data into a package</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -35,6 +35,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -412,49 +414,66 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Week 6</h1>
+<h1 class="title toc-ignore">Week 6: Organizing your R code and data into a package</h1>
 
 </div>
 
 
-<div id="intro-to-r-packages" class="section level2">
-<h2>Intro to R packages</h2>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:left;color: white !important;background-color: blue !important;width: 20%; ">
+Compartmentalized
+</td>
+<td style="text-align:left;color: white !important;background-color: blue !important;width: 20%; ">
+Documented
+</td>
+<td style="text-align:left;color: white !important;background-color: blue !important;width: 20%; ">
+Extendible
+</td>
+<td style="text-align:left;color: white !important;background-color: blue !important;width: 20%; ">
+Reproducible
+</td>
+<td style="text-align:left;color: white !important;background-color: blue !important;width: 20%; ">
+Robust
+</td>
+</tr>
+</tbody>
+</table>
+<p>Part 3, Sharing your package.</p>
+<div id="sharing-your-package-on-github" class="section level2">
+<h2>Sharing your package on GitHub</h2>
+<p>Once you have your package on GitHub, it is easy for people to install using</p>
+<pre><code>library(devtools)
+install_github(&quot;youraccount/MyNewPackage&quot;)</code></pre>
+<p>For example to install the package on ‘RVerse-Tutorials’, you would use</p>
+<pre><code>install_github(&quot;RVerse-Tutorials/TestPackage&quot;)</code></pre>
+<p>Note, {remotes} is another option that you’ll see instead of {devtools}.</p>
+<div id="making-sure-people-use-the-latest-version" class="section level3">
+<h3>Making sure people use the latest version</h3>
+<p>You can create releases on GitHub and give people these installation instructions:</p>
+<pre><code>devtools::install_github(&quot;youraccount/MyNewPackage@*release&quot;)</code></pre>
+</div>
+</div>
+<div id="examples-of-real-data-packages" class="section level2">
+<h2>Examples of real data packages</h2>
 <ul>
-<li><a href="https://youtu.be/mIGIRzMxSG0">Lecture Video</a></li>
-<li><a href="week6-packages.html">The lecture notes</a></li>
+<li><a href="https://github.com/eeholmes/SardineForecast">SardineForecast</a> A complex package with lots of different types of data.</li>
+<li><a href="https://nwfsc-math-bio.github.io/VRData/">VRData</a> This is a data repo that I am developing for NWFSC application.</li>
 </ul>
 </div>
-<div id="notes-from-qa" class="section level2">
-<h2>Notes from Q&amp;A</h2>
-<ul>
-<li><a href="https://docs.github.com/en/github/managing-large-files/working-with-large-files/conditions-for-large-files">GitHub info on large files</a></li>
-</ul>
+<div id="how-do-i-get-my-package-on-github" class="section level2">
+<h2>How do I get my package on GitHub?</h2>
+<p><a href="https://rverse-tutorials.github.io/PSAW-2022/">PSAW II Workshop Introduction to GitHub</a></p>
 </div>
-<div id="helpful-fitnoaa-resources" class="section level2">
-<h2>Helpful FIT/NOAA resources</h2>
+<div id="data-package-collaboration" class="section level2">
+<h2>Data package collaboration</h2>
+<p>In a team application, you’ll be dividing up the work.</p>
 <ul>
-<li><a href="https://github.com/nmfs-fish-tools/Resources">FIT Resources</a> License, disclaimer and NOAA footer for your packages here.</li>
-<li><a href="https://noaa-fisheries-integrated-toolbox.github.io/resources/">FIT Resources blog</a> Scroll down the navbar on left to see coding resources.</li>
-<li><a href="https://github.com/nmfs-general-modeling-tools/nmfs-general-modeling-tools.github.io/blob/master/.github/ISSUE_TEMPLATE/r-package-code-review.md">Package review template</a></li>
-<li><a href="https://noaa-fisheries-integrated-toolbox.github.io/resources/workshops/NOAA-pkgdown/">FIT NOAA Themed pkgdown</a></li>
-<li><a href="https://noaa-fisheries-integrated-toolbox.github.io/resources/best-practices/code-testing/">Code Testing</a></li>
-<li><a href="https://noaa-fisheries-integrated-toolbox.github.io/resources/best-practices/code-review/">Code review</a></li>
-<li><a href="https://emilymarkowitz-noaa.github.io/NMFSReports/">NMFS Reports</a> Check out this package by Emily Markowitz at AFSC for making NMFS Reports with proper branding and structure.</li>
-</ul>
-</div>
-<div id="example-r-packages" class="section level2">
-<h2>Example R packages</h2>
-<ul>
-<li><a href="https://github.com/RWorkflow-Workshop-2021/MyNewPackage">MyNewPackage</a> The package I made during class. You can also open on <a href="https://rstudio.cloud/project/2574138">RStudio Cloud</a> and build it from there.</li>
-<li><a href="https://nwfsc-math-bio.github.io/VRData/">VRData</a> This is the data package that I spent the most time on in lecture.</li>
-<li><a href="https://github.com/eeholmes/SardineForecast">SardineForecast</a> Data package for a recent paper of mine.
-<ul>
-<li>This one had a lot of preprocessing which is in the <code>inst/extdata</code> folder. The data documentation is in <a href="https://github.com/eeholmes/SardineForecast/blob/master/R/data.R"><code>R/data.R</code></a>. I don’t recommend putting all the data background into one R file. It drove me nuts.</li>
-<li>For my paper, I had an appendix with the data information. To write that, I wrote a script to process the Rd files in the <code>man</code> folder into a Rmd document. So although writing the data documentation was time-consuming, it saved me a lot of time when writing the paper.</li>
-<li>The paper also included the data used in the analyses in a table in an appendix. I wrote a script to make that table using this data library.<br />
-</li>
-<li>For the paper tables and figures, I used <code>library(SardineForecast)</code>. That ensured that all figures and tables used the same and most recent data. There were a number of big data changes that happened in revision, and not having a data package would have made updating the paper much harder.</li>
-</ul></li>
+<li><strong>The package development</strong>. R coder and knows how to design a package.</li>
+<li><strong>Data</strong>. Team members who add files to <code>data-raw</code> in whatever format your team uses.</li>
+<li><strong>Documentation</strong>. Multiple team members might be involved in editing the files in the <code>R</code> directory. Note, in <strong>VRData</strong> the documentation headers are in <code>data-raw</code> and I have code that processes that into the files in <code>R</code>.</li>
+<li><strong>Package maintainer</strong>. Not necessarily the package developer. This person makes sure releases are posted to GitHub.</li>
 </ul>
 </div>
 
@@ -512,7 +531,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1,h2,h3",
+      selectors: "h1,h2",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
