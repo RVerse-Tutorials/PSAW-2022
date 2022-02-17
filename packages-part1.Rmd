@@ -462,13 +462,39 @@ But in other applications, it often makes sense to give your data a specific nam
 * [SardineForecast](https://github.com/eeholmes/SardineForecast) A complex package with lots of different types of data.
 * [VRData](https://nwfsc-math-bio.github.io/VRData/) This is a data repo that I am developing for NWFSC application.
 
-## Workflow on your own computer
+## Creating your own R package from scratch
+
+### The base package
 
 * Create a new R package in RStudio via New Project in upper right corner.
-* Install the Roxygen2 package if you don't have it.
+* Once you select New Project, select  New Directory > R package. That will create a template for your.
+* Install the {roxygen2} package if needed.
+* Open Tools > Project Options > Build Tools. Then click the checkbox to create documentation with roxygen2. Next click Configure and make sure all the checkboxes are checked (all of them)
+* Delect NAMESPACE since you are going to have {roxygen2} make this.
+* From the Build tab, click 'Install and Restart'. Now the {roxygen2} info will be added to your DESCRIPTION file and {roxygen2} will make your NAMESPACE
+* Go into the R folder and replace the `hello.R` code with this so you have a better starting template. Later you will develop your own {roxygen2} template so you don't have to remember how to document a function.
+```
+#' This is the title
+#'
+#' This is the description
+#'
+#' @param arg1 describe what arg1 is
+#'
+#' @export
+#' @keywords functions
+hello <- function(arg1) {
+  print("Hello, world!")
+}
+```
+
+### Add functions to your package
+
+* Add `.R` files to the `R` folder with your {roxygen2} header.
+
+### Add data to your package
+
 * Create `data` folder.
-* Add `rda` files to the `data` folder.
-* Add `.R` files to the `R` folder with your Roxygen2 data documentation.
+* Add `.rda` (or `.RData` doesn't matter which) files to the `data` folder.
 
 If you use `LazyData: true` and your data all have unique names, you can use:
 ```
@@ -478,7 +504,9 @@ If you use `LazyData: true` and your data all have unique names, you can use:
 #'
 "dataname"
 ```
-or if you use `LazyData: false` and your data do not have unique names, you use:
+Note {roxygen2} will throw an error if `dataname` is not a loaded data object in your `data` folder.
+
+If you use `LazyData: false`, your data do not have unique names, or you want more flexibility in creating your data documentation, use:
 ```
 #' title
 #'
@@ -488,12 +516,20 @@ or if you use `LazyData: false` and your data do not have unique names, you use:
 #' @name dataname
 NULL
 ```
+The `@name` part specifies what name will call up help when the users types `?dataname`. `dataname` does not need to exist as an object. You can use any text you want.
 
-* Make sure Tools > Project Options > Build Tools has the checkbox for "Generate documentation with Roxygen" checked. Click on Configure and check the "Install and Restart" checkbox.
-* On the Build tab, click "Install and Restart"
+Want the same documentation to come up for multiple names? For example, the same documentation page to appear for `?species1` and `?species2` and `?surveydata`? Use `@aliases` like so
+```
+#' @name surveydata
+#' @aliases species1 species2
+```
 
-Note, you'll want to keep your raw data and code to convert that into the `rda` files with the package. Put in `data-raw` or `inst\extdata`.
+Note, if you want to keep your raw data and code to convert that into the `rda` files with the package, put in `data-raw`. To keep that directory out of the package that users install, add `data-raw` to the `.Rbuildignore` file.
 
+### Checking your package
+
+* Run Check from the Build tab regularly. It is best not to put this off too long or else you'll create a lot more work for yourself as you track down one warning or error after another.
+* Don't let yourself suffer trying to figure out what the warnings and errors mean. Most are simple namespace issues that are easy to fix once you know how. Ask someone who builds packages. The NMFS R UG Group Chat is a good place. 
 
     
     

@@ -26,3 +26,40 @@ https://github.com/nmfs-openscapes/.github/wiki/02-GitHub-in-Government#github-i
 Eli Holmes
 Northwest Fisheries Science Center, NOAA Fisheries
 https://github.com/eeholmes
+
+-------------
+
+Follow-up on the Intro to R Packages Session
+
+Here are my notes from the PSAW session yesterday:
+https://rverse-tutorials.github.io/PSAW-2022/
+I will add a link to the recording when I get it.
+
+FYI, there is an active NMFS R User Group with monthly meetings, a Google User Space for discussions, and a GitHub org for discussion also. 
+https://nmfs-openscapes.github.io/NMFS-R-UG/
+If you want to join that, please sign up here:
+https://forms.gle/Xf8hr48SuyP1cNkn8
+See the Win-Spr talk line up here: https://docs.google.com/presentation/d/e/2PACX-1vSpQMBLWMdvGrxwXab2lSbPMnkARhZvB5EPcm13UeGrJ8-kai5gCKZTDsHXBQQTCswX1hWAdR-ULwPo/pub?start=false&loop=false&delayms=3000
+
+You can also add the NMFS R UG calendar to your (NOAA) Google calendar to see all the events:
+https://calendar.google.com/calendar/u/0?cid=bm9hYS5nb3ZfNjByZm43bWw5cnBjaGw2M3ZzNGFmOW4wMThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
+
+Suggestions for Getting Started with R package
+
+Use the package template in RStudio
+
+
+The key point of the session is about changing your workflow to include 1) a 'history' of your changes and what issues you were working on and 2) organizing your work with reuse by your future self or others in mind. 
+
+Git/GitHub is a tool to do this and is widely used in NMFS and by scientists in general. Using it allows you to take advantage of work that others share and will naturally help you be more disciplined in your science workflows.
+
+1. Start with a private GitHub repository and get used to the new workflow of making commits as you work and track your work. Use GitHub issues to start tracking your project to-do list and 'conversations' with yourself about those items.
+
+2. Join some of the NMFS R UG sessions and learn how NMFS teams use GitHub (link to join above). 
+
+3. Begin making connections so that you can learn from teams across NMFS doing similar work to you and are using GitHub to share or release work. Links to GitHub organizations in NOAA Fisheries:
+https://github.com/nmfs-openscapes/.github/wiki/02-GitHub-in-Government#github-in-noaa--nmfs
+
+Eli Holmes
+Northwest Fisheries Science Center, NOAA Fisheries
+https://github.com/eeholmes
