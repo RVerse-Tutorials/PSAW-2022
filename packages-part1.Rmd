@@ -462,7 +462,7 @@ But in other applications, it often makes sense to give your data a specific nam
 * [SardineForecast](https://github.com/eeholmes/SardineForecast) A complex package with lots of different types of data.
 * [VRData](https://nwfsc-math-bio.github.io/VRData/) This is a data repo that I am developing for NWFSC application.
 
-## Creating your own R package from scratch
+## Creating your own R package
 
 ### The base package
 
@@ -495,8 +495,9 @@ hello <- function(arg1) {
 
 * Create `data` folder.
 * Add `.rda` (or `.RData` doesn't matter which) files to the `data` folder.
+* Add documentation files for your data objects in the R folder. The file should have `.R` ending but the filename doesn't matter. I suggest something like `data-dataname.R`. Using `data-` tag will help you find all your data documentation files.
 
-If you use `LazyData: true` and your data all have unique names, you can use:
+If you use `LazyData: true` and your data all have unique names, your data documentation file (e.g. `data-dataname.R` which you put in the R folder) can take the form:
 ```
 #' title
 #'
@@ -504,9 +505,9 @@ If you use `LazyData: true` and your data all have unique names, you can use:
 #'
 "dataname"
 ```
-Note {roxygen2} will throw an error if `dataname` is not a loaded data object in your `data` folder.
+where `dataname` is the name of the data object. Note {roxygen2} will throw an error if `dataname` is not a loaded data object in your `data` folder.
 
-If you use `LazyData: false`, your data do not have unique names, or you want more flexibility in creating your data documentation, use:
+If you use `LazyData: false`, your data do not have unique names, or you want more flexibility in creating your data documentation, use something like this for your data documentation file:
 ```
 #' title
 #'

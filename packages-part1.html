@@ -809,8 +809,8 @@ save(salmon, file=&quot;data/columbia-river-chinook-esu.rda&quot;)</code></pre>
 <li><a href="https://nwfsc-math-bio.github.io/VRData/">VRData</a> This is a data repo that I am developing for NWFSC application.</li>
 </ul>
 </div>
-<div id="creating-your-own-r-package-from-scratch" class="section level2">
-<h2>Creating your own R package from scratch</h2>
+<div id="creating-your-own-r-package" class="section level2">
+<h2>Creating your own R package</h2>
 <div id="the-base-package" class="section level3">
 <h3>The base package</h3>
 <ul>
@@ -845,15 +845,16 @@ hello &lt;- function(arg1) {
 <ul>
 <li>Create <code>data</code> folder.</li>
 <li>Add <code>.rda</code> (or <code>.RData</code> doesn’t matter which) files to the <code>data</code> folder.</li>
+<li>Add documentation files for your data objects in the R folder. The file should have <code>.R</code> ending but the filename doesn’t matter. I suggest something like <code>data-dataname.R</code>. Using <code>data-</code> tag will help you find all your data documentation files.</li>
 </ul>
-<p>If you use <code>LazyData: true</code> and your data all have unique names, you can use:</p>
+<p>If you use <code>LazyData: true</code> and your data all have unique names, your data documentation file (e.g. <code>data-dataname.R</code> which you put in the R folder) can take the form:</p>
 <pre><code>#&#39; title
 #&#39;
 #&#39; data description
 #&#39;
 &quot;dataname&quot;</code></pre>
-<p>Note {roxygen2} will throw an error if <code>dataname</code> is not a loaded data object in your <code>data</code> folder.</p>
-<p>If you use <code>LazyData: false</code>, your data do not have unique names, or you want more flexibility in creating your data documentation, use:</p>
+<p>where <code>dataname</code> is the name of the data object. Note {roxygen2} will throw an error if <code>dataname</code> is not a loaded data object in your <code>data</code> folder.</p>
+<p>If you use <code>LazyData: false</code>, your data do not have unique names, or you want more flexibility in creating your data documentation, use something like this for your data documentation file:</p>
 <pre><code>#&#39; title
 #&#39;
 #&#39; data description

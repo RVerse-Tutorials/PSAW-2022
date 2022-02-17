@@ -46,19 +46,15 @@ https://calendar.google.com/calendar/u/0?cid=bm9hYS5nb3ZfNjByZm43bWw5cnBjaGw2M3Z
 
 Suggestions for Getting Started with R package
 
-Use the package template in RStudio
+Start by using the package template in RStudio. Instructions:
 
 
-The key point of the session is about changing your workflow to include 1) a 'history' of your changes and what issues you were working on and 2) organizing your work with reuse by your future self or others in mind. 
+Alternatively you can use:
+usethis::create_package()
+but I suspect that the RStudio template will be easier for your first package.
 
-Git/GitHub is a tool to do this and is widely used in NMFS and by scientists in general. Using it allows you to take advantage of work that others share and will naturally help you be more disciplined in your science workflows.
 
-1. Start with a private GitHub repository and get used to the new workflow of making commits as you work and track your work. Use GitHub issues to start tracking your project to-do list and 'conversations' with yourself about those items.
 
-2. Join some of the NMFS R UG sessions and learn how NMFS teams use GitHub (link to join above). 
-
-3. Begin making connections so that you can learn from teams across NMFS doing similar work to you and are using GitHub to share or release work. Links to GitHub organizations in NOAA Fisheries:
-https://github.com/nmfs-openscapes/.github/wiki/02-GitHub-in-Government#github-in-noaa--nmfs
 
 Eli Holmes
 Northwest Fisheries Science Center, NOAA Fisheries
