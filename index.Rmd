@@ -10,6 +10,8 @@ The focus of these training session is practical skills and tools. To follow alo
 
 ## Intro to R Packages, and especially data R packages Feb 16
 
+[Video of the workshop](https://youtu.be/DHoedjyRWfU)
+
 * [Part 1](packages-part1.html). Intro to R packages for data and code. You'll learn the basic parts of an R package, how to add functions and data, how to document code and data, and how to make vignettes.
 
 * [Part 2](packages-part2.html). Bells and whistles. Introduction to **pkgdown** for package websites, NMFS branded packages, creating vignettes, and checking your package. 

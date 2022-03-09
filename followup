@@ -44,17 +44,14 @@ See the Win-Spr talk line up here: https://docs.google.com/presentation/d/e/2PAC
 You can also add the NMFS R UG calendar to your (NOAA) Google calendar to see all the events:
 https://calendar.google.com/calendar/u/0?cid=bm9hYS5nb3ZfNjByZm43bWw5cnBjaGw2M3ZzNGFmOW4wMThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
 
-Suggestions for Getting Started with R package
+Suggestions for Getting Started with your first R package
 
 Start by using the package template in RStudio. Instructions:
-
+https://rverse-tutorials.github.io/PSAW-2022/packages-part1.html#Creating_your_own_R_package
 
 Alternatively you can use:
 usethis::create_package()
 but I suspect that the RStudio template will be easier for your first package.
-
-
-
 
 Eli Holmes
 Northwest Fisheries Science Center, NOAA Fisheries
