@@ -4,7 +4,7 @@ title: "PSAW 2022 Training Sessions"
 
 <img style="float: right;" src="images/tools-logo-transparent.png" width=30%>
 
-The focus of these training session is practical skills and tools. To follow along with the GitHub workshop, go to [Set-up](set-up.html). No set-up is needed for the R packages workshop as we will use RStudio Cloud.
+The focus of these training sessions is practical skills and tools. To follow along with the GitHub workshop, go to [Set-up](set-up.html). No set-up is needed for the R packages workshop as we will use RStudio Cloud. Links to all the PSAW III Sessions is [here](https://sites.google.com/noaa.gov/nmfs-ost-psaw/home).
 
 <hr>
 
